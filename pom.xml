@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!-- Customize your template plugin beginning from here. -->
+
+
+    <!-- The <parent> element should be completely removed when releasing your own plugin. -->
+    <parent>
+        <groupId>com.k15t</groupId>
+        <artifactId>k15t-master-pom</artifactId>
+        <version>10</version>
+    </parent>
+
+    <!-- These should be adapted to match your company's domain and the name of the theme. -->
+    <groupId>com.k15t.scroll</groupId>
+    <artifactId>scroll-webhelp-theme</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Scroll WebHelp Theme</name>
+    <description>Provides the Scroll WebHelp Theme for Scroll Viewport and Scroll HTML Exporter.</description>
+
+    <!-- Adapt this to point to your theme's remote git repository or remove it completely if you don't use a remote repository. -->
+    <scm>
+        <connection>scm:git:ssh://git@bitbucket.org/K15t/scroll-webhelp-theme.git</connection>
+        <url>https://bitbucket.org/K15t/scroll-webhelp-theme</url>
+        <tag>HEAD</tag>
+    </scm>
+
+
+    <!-- Don't modify anything below this line. -->
+
+
+    <packaging>atlassian-plugin</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-confluence-plugin</artifactId>
+                <version>5.0.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <compressResources>false</compressResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>
