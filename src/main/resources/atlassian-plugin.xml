@@ -1,0 +1,53 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+
+    <!-- Don't modify this, it is automatically filled with the data you entered in 'pom.xml' -->
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="atlassian-data-center-compatible">true</param>
+    </plugin-info>
+
+
+    <!-- Here you define your template(s), you may choose custom keys and names. -->
+
+
+    <!-- Scroll WebHelp Theme for Scroll Viewport, remove this if you don't want to create a Scroll Viewport theme. -->
+    <scroll-viewport-theme key="scroll-webhelp-theme" name="Scroll WebHelp Theme">
+        <resource name="assets/css/theme.colors.css"                    location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.colors.css"/>
+        <resource name="assets/css/theme.confluence-inline-tasks.css"   location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.confluence-inline-tasks.css"/>
+        <resource name="assets/css/theme.main.css"                      location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.main.css"/>
+        <resource name="assets/fonts/atlassian-icons.eot"               location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/fonts/atlassian-icons.eot"/>
+        <resource name="assets/fonts/atlassian-icons.svg"               location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/fonts/atlassian-icons.svg"/>
+        <resource name="assets/fonts/atlassian-icons.ttf"               location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/fonts/atlassian-icons.ttf"/>
+        <resource name="assets/fonts/atlassian-icons.woff"              location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/fonts/atlassian-icons.woff"/>
+        <resource name="assets/images/ht-dropdown-arrow.png"            location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/images/ht-dropdown-arrow.png"/>
+        <resource name="assets/images/ht-icon-search-background.png"    location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/images/ht-icon-search-background.png"/>
+        <resource name="assets/images/theme-logo.png"                   location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/images/theme-logo.png"/>
+        <resource name="assets/js/jquery.min.js"                        location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/jquery.min.js"/>
+        <resource name="assets/js/jquery.scroll-tree.js"                location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/jquery.scroll-tree.js"/>
+        <resource name="assets/js/theme.main.js"                        location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/theme.main.js"/>
+        <resource name="assets/svg/ht-icon-export.svg"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-export.svg"/>
+        <resource name="assets/svg/ht-icon-link.svg"                    location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-link.svg"/>
+        <resource name="assets/svg/ht-icon-search.svg"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-search.svg"/>
+        <resource name="assets/svg/ht-icon-share.svg"                   location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-share.svg"/>
+        <resource name="assets/svg/ht-icon-toggle.svg"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-toggle.svg"/>
+
+        <resource name="include/include-breadcrumb.vm"                  location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-breadcrumb.vm"/>
+        <resource name="include/include-content.vm"                     location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-content.vm"/>
+        <resource name="include/include-error.vm"                       location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-error.vm"/>
+        <resource name="include/include-footer.vm"                      location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-footer.vm"/>
+        <resource name="include/include-headerbar.vm"                   location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-headerbar.vm"/>
+        <resource name="include/include-htmlhead.vm"                    location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-htmlhead.vm"/>
+        <resource name="include/include-quicksearch.vm"                 location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-quicksearch.vm"/>
+        <resource name="include/include-search.vm"                      location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-search.vm"/>
+        <resource name="include/include-sidebar.vm"                     location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-sidebar.vm"/>
+
+        <resource name="overrides/sp-pagelayout.vm"                     location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/overrides/sp-pagelayout.vm"/>
+
+        <resource name="error.vm"                                       location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/error.vm"/>
+        <resource name="page.vm"                                        location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/page.vm"/>
+        <resource name="search.vm"                                      location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/search.vm"/>
+    </scroll-viewport-theme>
+
+</atlassian-plugin>

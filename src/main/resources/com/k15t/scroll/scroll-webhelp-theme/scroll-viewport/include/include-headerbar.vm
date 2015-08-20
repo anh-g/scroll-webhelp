@@ -1,0 +1,51 @@
+<header id="ht-headerbar">
+    <div class="ht-headerbar-left">
+        <a href="" id="ht-menu-toggle" class="sp-aui-icon-small sp-aui-iconfont-appswitcher"></a>
+    </div>
+    <div class="ht-headerbar-right ">
+		
+      	<div id="ht-search">
+            
+            #set($search = "/search")
+            #if ($stringUtils.equals(${viewport.link}, "/") == false)
+                #set($search = "${viewport.link}/search")
+            #end
+            <div class="ht-search-input">
+              	<a href="#" class="sp-aui-icon-small sp-aui-iconfont-remove ht-search-clear"></a>
+                <form action="$search" method="GET" id="search">
+                    <input class="search-input" type="text" placeholder="Search" tabindex="-1" autocomplete="off"
+                           name="q" value="">
+                  	<input type="hidden" name="max" value="15" />
+                    <input type="submit" style="display:none" tabindex="-4"/>
+                
+                ## --- START --- Scroll Versions and Scroll Translations Integration -------------------------------------------
+                    #if ($versions || $variants || $languages)
+                        #if($versions)
+                            <input id="version" type="hidden" name="scroll-versions:version-name"
+                                   value="$versions.current.value"/>
+                        #end
+                        #if($variants)
+                            <input id="variant" type="hidden" name="scroll-versions:variant-name"
+                                   value="$variants.current.value"/>
+                        #end
+                        #if($languages)
+                            <input id="language" type="hidden" name="scroll-translations:language-key"
+                                   value="$languages.current.value"/>
+                        #end
+                    #end
+                ## --- END -----------------------------------------------------------------------------------------------------
+
+                </form>
+              	<a href="#" id="ht-search-button" class="ht-header-icon ht-header-icon-svg">
+                  <img src="${theme.baseUrl}/assets/svg/ht-icon-search.svg">
+              	</a>
+
+                <div class="ht-search-dropdown ht-dropdown">
+                    <ul></ul>
+                </div>
+                
+            </div>
+        </div>
+      <a id="sp-viewport-control-opener" href="#" class="sp-aui-icon-small sp-aui-iconfont-confluence ht-header-icon ht-confluence-button"></a>
+    </div>
+</header>

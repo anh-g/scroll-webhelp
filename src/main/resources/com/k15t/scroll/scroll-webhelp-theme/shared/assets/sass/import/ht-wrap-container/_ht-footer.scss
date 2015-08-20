@@ -1,0 +1,57 @@
+#ht-footer {
+  @import '../common/reset/reset';
+}
+
+#ht-footer {
+  max-width: $content-maxwidth;
+  padding: 0 40px 12px;
+  position: absolute;
+  bottom: 0px;
+  margin-top: 48px;
+  left: 0px;
+  right: 0px;
+
+  @include max-screen($mq-tablet) {
+    padding: 0 32px 12px;
+    margin: 0 auto;
+  }
+
+  @include max-screen($mq-mobile) {
+    padding: 0 16px 24px;
+  }
+
+  small {
+    font-size: 0.7em;
+    max-width: 75%;
+
+    @include max-screen($mq-mobile) {
+      div {
+        width: 70%;
+        margin: 0 auto;
+      }
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  #ht-jump-top {
+    display: none;
+    float: right;
+
+    padding: 6px 0 6px 6px;
+    margin-top: -24px;
+
+    @include max-screen($mq-mobile) {
+      margin-top: -32px;
+    }
+    &:before {
+      font-size: 24px;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}

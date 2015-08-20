@@ -1,0 +1,31 @@
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+## Confluence meta information
+$page.resources.meta
+
+## jQuery
+<script type="text/javascript" src="${theme.baseUrl}/assets/js/jquery.min.js"></script>
+
+## Scroll tree implementation
+<script type="text/javascript" src="${theme.baseUrl}/assets/js/jquery.scroll-tree.js"></script>
+
+<script type="text/javascript" src="${theme.baseUrl}/assets/js/theme.main.js"></script>
+
+## Confluence JS information
+$page.resources.js
+
+## Confluence ctx information
+$page.resources.requireForContext('atl.general')
+$page.resources.requireForContext('viewcontent')
+
+## Confluence inline tasks information
+$page.resources.require('com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles')
+##<link rel="stylesheet" href="${theme.baseUrl}/assets/css/theme.confluence-inline-tasks.css">
+
+## Confluence CSS information
+$page.resources.css
+
+## Default Theme Stylesheets
+<link rel="stylesheet" href="${theme.baseUrl}/assets/css/theme.main.css">
+<link rel="stylesheet" href="${theme.baseUrl}/assets/css/theme.colors.css">

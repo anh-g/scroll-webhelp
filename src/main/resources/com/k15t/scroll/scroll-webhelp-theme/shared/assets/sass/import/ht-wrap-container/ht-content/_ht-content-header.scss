@@ -1,0 +1,45 @@
+.ht-content-header {
+  @import '../../common/reset/reset';
+}
+
+.ht-content-header {
+  margin-bottom: 32px;
+
+  @include max-screen($mq-mobile) {
+    margin-bottom: 18px;
+  }
+
+  @import 'ht-content-header/ht-breadcrumb';
+
+  h1 {
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  h2 {
+
+  }
+
+  h3 {
+
+  }
+
+  h4 {
+
+  }
+
+  h5 {
+
+  }
+
+  p {
+    font-size: 0.875em;
+    line-height: 1.250rem;
+    margin-bottom: 0.938rem;
+
+    @include max-screen($mq-mobile) {
+      font-size: 1.125em;
+      line-height: 1.6rem;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+#if ($stringUtils.contains($url.query, 'quicksearch=true'))
+    $include.template('include/include-quicksearch.vm')
+#else
+## CUSTOM
+    $include.template('custom/include/include-search.vm')
+##$include.template('include/include-search.vm')
+#end
+
