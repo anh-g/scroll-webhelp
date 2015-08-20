@@ -378,7 +378,8 @@ function initButtons() {
 
 function setDropdown(select) {
     var container = select.parent();
-    var toggle = $('<a class="ht-select-button" href="#"><span>' + select.find('option:selected').text() + '</span></a>')
+    var svg = '<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="ht-select-button-icon"><path d="M2,3 L8,3 L5,7 L2,3 Z"></path></g></svg>';
+    var toggle = $('<a class="ht-select-button" href="#"><span>' + select.find('option:selected').text() + '</span>' + svg + '</a>')
     container.append(toggle);
 
     var label = container.parent().find('label').remove();
