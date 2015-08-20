@@ -24,7 +24,6 @@
         <resource name="assets/images/ht-dropdown-arrow.png"            location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/images/ht-dropdown-arrow.png"/>
         <resource name="assets/images/ht-icon-search-background.png"    location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/images/ht-icon-search-background.png"/>
         <resource name="assets/images/theme-logo.png"                   location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/images/theme-logo.png"/>
-        <resource name="assets/js/jquery.min.js"                        location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/jquery.min.js"/>
         <resource name="assets/js/jquery.scroll-tree.js"                location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/jquery.scroll-tree.js"/>
         <resource name="assets/js/theme.main.js"                        location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/theme.main.js"/>
         <resource name="assets/svg/ht-icon-export.svg"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-export.svg"/>

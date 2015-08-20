@@ -5,38 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>$space.name - $page.title</title>
 
-## CUSTOM
-    $include.template("/custom/include/include-htmlhead.vm")
-##$include.template("/include/include-htmlhead.vm")
+    $include.template("/include/include-htmlhead.vm")
 
 </head>
 <body pageid="$page.id">
 <div id="ht-loader"></div>
-## CUSTOM
-    $include.template("/custom/include/include-notificationbar.vm")
-
-## CUSTOM
-    $include.template("/custom/include/include-headerbar.vm")
-##$include.template("/include/include-headerbar.vm")
-
-## CUSTOM
-    $include.template("/custom/include/include-sidebar.vm")
-##$include.template("/include/include-sidebar.vm")
+    $include.template("/include/include-headerbar.vm")
+    $include.template("/include/include-sidebar.vm")
 
 <div id="ht-wrap-container">
-
     $include.template("/include/include-error.vm")
-
-## CUSTOM
-       $include.template("/custom/include/include-footer.vm")
- ##$include.template("/include/include-footer.vm")
-
-</div>
-
-
-## CUSTOM
-<div>
-    $include.template("/custom/include/include-popover.vm")
+    $include.template("/include/include-footer.vm")
 </div>
 
 

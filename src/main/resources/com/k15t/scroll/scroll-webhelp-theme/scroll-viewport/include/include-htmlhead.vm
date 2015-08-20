@@ -4,16 +4,14 @@
 ## Confluence meta information
 $page.resources.meta
 
-## jQuery
-<script type="text/javascript" src="${theme.baseUrl}/assets/js/jquery.min.js"></script>
+## Confluence JS information
+$page.resources.js
 
 ## Scroll tree implementation
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/jquery.scroll-tree.js"></script>
 
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/theme.main.js"></script>
 
-## Confluence JS information
-$page.resources.js
 
 ## Confluence ctx information
 $page.resources.requireForContext('atl.general')
