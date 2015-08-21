@@ -5,3 +5,5 @@
 /src/main/resources/com/k15t/scroll/scroll-webhelp-theme/shared/.sass-cache
 *.iml
 .idea
+/src/main/resources/com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.colors.scss
+/src/main/resources/com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.main.scss
