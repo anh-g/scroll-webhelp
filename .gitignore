@@ -2,5 +2,6 @@
 /target
 /.classpath
 /.project
+/src/main/resources/com/k15t/scroll/scroll-webhelp-theme/shared/.sass-cache
 *.iml
 .idea

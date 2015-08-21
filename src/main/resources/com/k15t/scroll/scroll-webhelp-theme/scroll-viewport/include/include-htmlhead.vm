@@ -19,7 +19,6 @@ $page.resources.requireForContext('viewcontent')
 
 ## Confluence inline tasks information
 $page.resources.require('com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles')
-##<link rel="stylesheet" href="${theme.baseUrl}/assets/css/theme.confluence-inline-tasks.css">
 
 ## Confluence CSS information
 $page.resources.css

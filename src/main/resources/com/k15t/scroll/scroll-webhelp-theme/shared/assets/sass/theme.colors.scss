@@ -79,12 +79,20 @@ a, span, li, nav, ul {
       a.ht-select-button {
         color: $color-text;
 
+        .ht-select-button-icon{
+          fill: $color-text;
+        }
+
         &:hover {
           background-color: $color-secondary;
           color: white;
 
           label {
             color: white;
+          }
+
+          .ht-select-button-icon{
+            fill:white;
           }
 
           @include max-screen($mq-tablet) {
@@ -102,8 +110,12 @@ a, span, li, nav, ul {
           background-color: $color-secondary;
           color: white;
 
-          label {
+          label, span {
             color: white;
+          }
+          
+          .ht-select-button-icon{
+            fill:white;
           }
 
           @include max-screen($mq-tablet) {
