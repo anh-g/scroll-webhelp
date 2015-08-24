@@ -26,11 +26,6 @@
         <resource name="assets/images/theme-logo.png"                   location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/images/theme-logo.png"/>
         <resource name="assets/js/jquery.scroll-tree.js"                location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/jquery.scroll-tree.js"/>
         <resource name="assets/js/theme.main.js"                        location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/theme.main.js"/>
-        <resource name="assets/svg/ht-icon-export.svg"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-export.svg"/>
-        <resource name="assets/svg/ht-icon-link.svg"                    location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-link.svg"/>
-        <resource name="assets/svg/ht-icon-search.svg"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-search.svg"/>
-        <resource name="assets/svg/ht-icon-share.svg"                   location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-share.svg"/>
-        <resource name="assets/svg/ht-icon-toggle.svg"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-toggle.svg"/>
 
         <resource name="assets/js/scroll-tree.js"                       location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/js/scroll-tree.js"/>
 
