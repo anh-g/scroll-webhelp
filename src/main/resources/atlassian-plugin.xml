@@ -32,6 +32,8 @@
         <resource name="assets/svg/ht-icon-share.svg"                   location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-share.svg"/>
         <resource name="assets/svg/ht-icon-toggle.svg"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/svg/ht-icon-toggle.svg"/>
 
+        <resource name="assets/js/scroll-tree.js"                       location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/js/scroll-tree.js"/>
+
         <resource name="include/include-breadcrumb.vm"                  location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-breadcrumb.vm"/>
         <resource name="include/include-content.vm"                     location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-content.vm"/>
         <resource name="include/include-error.vm"                       location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-error.vm"/>

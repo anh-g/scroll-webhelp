@@ -9,6 +9,7 @@ $page.resources.js
 
 ## Scroll tree implementation
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/jquery.scroll-tree.js"></script>
+<script type="text/javascript" src="${theme.baseUrl}/assets/js/scroll-tree.js"></script>
 
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/theme.main.js"></script>
 
