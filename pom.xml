@@ -63,7 +63,7 @@
                 <executions>
                     <execution>
                         <id>package</id>
-                        <phase>prepare-package</phase>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>update-stylesheets</goal>
                         </goals>
