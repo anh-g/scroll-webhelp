@@ -358,14 +358,17 @@ function setDropdown(select) {
             return;
         }
 
-        $.each($('.' + container.attr('class')), function (index, val) {
-            if ($(this).find('.ht-select-button').hasClass('active'))toogleDropdown($(this), false);
-        });
 
         if ($(this).hasClass('active')) {
             toogleDropdown(container, false);
             $(this).removeClass('active');
         } else {
+            $.each($('.' + container.attr('class')), function (index, val) {
+                if ($(this).find('.ht-select-button').hasClass('active')) {
+                    toogleDropdown($(this), false);
+                }
+            });
+
             toogleDropdown(container, true);
             $(this).addClass('active');
         }
