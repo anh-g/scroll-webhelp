@@ -185,7 +185,7 @@ function openSearch() {
         $('.ht-search-clear').addClass('show');
     }, 250);
     stopKey = true;
-    $('.search-input').focus();
+    $('.search-input')[0].focus();
 }
 
 function closeSearch() {
