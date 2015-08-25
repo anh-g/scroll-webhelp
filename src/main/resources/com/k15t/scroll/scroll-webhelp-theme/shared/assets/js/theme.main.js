@@ -10,6 +10,8 @@ var viewport = 'desktop';
 var svdropdown = false;
 //var pageId;
 
+// firefox detection
+var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
 
 $(document).ready(function ($) {
 
@@ -351,7 +353,7 @@ function setDropdown(select) {
     toggle.bind('click', function (e) {
         e.preventDefault();
 
-        if (viewport == 'mobile') {
+        if (viewport == 'mobile' && !isFirefox) {
             openSelect(select);
             return;
         }

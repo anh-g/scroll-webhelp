@@ -394,3 +394,13 @@
 
   }
 }
+
+// FIREFOX is the only browser where we render the desktop dropdown for all modes
+@include max-screen($mq-mobile) {
+  @-moz-document url-prefix() {
+    #ht-sidebar .ht-scroll-versions-widget .ht-dropdown {
+      left: auto;
+      box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
