@@ -85,6 +85,8 @@ function setDragbar(val) {
     if (val == NaN)val = 295;
 
     $('#ht-sidebar').width(val);
+    if (val < 220)$('#ht-sidebar').addClass('small');
+
     $('#ht-wrap-container').css("left", val + 10);
     $('#ht-headerbar').css('left', val);
 }

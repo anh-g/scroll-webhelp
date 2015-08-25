@@ -330,11 +330,15 @@
     label {
       display: none;
     }
-    .ht-select-button {
+    a.ht-select-button {
       text-align: left;
-      padding-left: 4px;
-    }
+      text-indent: 2px;
 
+      svg{
+        float:right;
+        margin-top:14px;
+      }
+    }
   }
 }
 
