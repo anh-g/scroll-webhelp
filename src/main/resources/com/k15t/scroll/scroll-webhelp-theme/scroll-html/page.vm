@@ -1,0 +1,57 @@
+#if ($renderStart)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>$space.name - $page.title</title>
+
+    #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-htmlhead.vm")
+
+</head>
+<body pageid="$page.id">
+
+<div id="ht-loader"></div>
+
+<div>
+   	#parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-headerbar.vm")
+   	#parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-sidebar.vm")
+</div>
+
+<div id="ht-wrap-container">
+
+    ## ----------------------------------------------------------------------------------------------------------------------------------
+    ## Represents include-content.vm in viewport from here
+    ## ---------------------------p-------------------------------------------------------------------------------------------------------
+
+    #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-sidebar-drag.vm")
+
+    <article class="ht-content">
+        <header class="ht-content-header">
+            #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-breadcrumb.vm")
+            <h1>$stringEscapeUtils.escapeHtml($element.Title)</h1>
+        </header>
+
+        <div id="ht-wiki-content" class="wiki-content">
+#else
+        </div>
+
+    </article>
+
+
+    #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-post-navigation.vm")
+
+    ## ----------------------------------------------------------------------------------------------------------------------------------
+    ## End of include-content.vm in viewport
+    ## ----------------------------------------------------------------------------------------------------------------------------------
+
+    #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-footer.vm")
+</div>
+
+<div>
+    <div id="ht-mq-detect"></div>
+</div>
+
+</body>
+</html>
+#end
