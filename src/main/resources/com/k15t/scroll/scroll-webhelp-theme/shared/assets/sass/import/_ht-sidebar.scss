@@ -23,7 +23,7 @@
     overflow-x: hidden;
     position: absolute;
     top: 0;
-    bottom: 48px;
+    bottom: 0;
     left: 0;
     right: 0;
 
@@ -118,7 +118,8 @@
           @include transition(transform 0.25s ease-in-out);
         }
 
-        @include max-screen($mq-mobile){
+        //@include max-screen($mq-mobile){
+        @include max-screen($mq-tablet){
           text-align: left;
           text-indent: 2px;
 
