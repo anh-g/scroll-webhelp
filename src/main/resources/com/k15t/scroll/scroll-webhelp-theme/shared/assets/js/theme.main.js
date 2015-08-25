@@ -342,7 +342,7 @@ function setDropdown(select) {
 
     $.each(select.find('option'), function (index, val) {
         var item = $('<li n="' + index + '"><a href="#" data-scroll-integration-name="' + select.attr('name') + '" data-scroll-integration-value="' + $(this).attr('value') + '">' + $(this).text() + '</a></li>');
-        dropdown.append(item);
+        dropdown.find('ul').append(item);
     });
 
     select.on('change', function () {
