@@ -1,0 +1,32 @@
+#search-results {
+  .search-result {
+    h2 {
+      font-size: 1.125em;
+      font-weight: normal;
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
+
+    p.search-result-link {
+      color: #999999;
+    }
+
+    a {
+      font-size: 0.875em;
+    }
+
+    hr {
+      width: 100%;
+      margin: 29px 0;
+    }
+
+    .sp-search-highlight {
+      font-size: larger;
+      font-style: italic;
+      font-weight: bold;
+    }
+  }
+}
