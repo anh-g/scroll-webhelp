@@ -4,18 +4,18 @@
 
 #ht-footer {
   max-width: $content-maxwidth;
-  margin: 48px 40px 12px 30px;
+  margin: 0px 40px 12px 30px;
   position: absolute;
   bottom: 0px;
   left: 0px;
   right: 0px;
 
   @include max-screen($mq-tablet) {
-    margin: 48px 40px 12px 32px;
+    margin: 0px 40px 12px 32px;
   }
 
   @include max-screen($mq-mobile) {
-    margin: 48px 19px 12px 19px;
+    margin: 0px 19px 12px 19px;
   }
 
   small {
