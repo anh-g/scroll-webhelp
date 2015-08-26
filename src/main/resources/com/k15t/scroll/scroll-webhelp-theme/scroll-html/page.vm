@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>$space.name - $page.title</title>
+    <title>$stringEscapeUtils.escapeHtml($element.Title) - $stringEscapeUtils.escapeHtml($space.name)</title>
 
     #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-htmlhead.vm")
 
@@ -22,7 +22,7 @@
 
     ## ----------------------------------------------------------------------------------------------------------------------------------
     ## Represents include-content.vm in viewport from here
-    ## ---------------------------p-------------------------------------------------------------------------------------------------------
+    ## ----------------------------------------------------------------------------------------------------------------------------------
 
     #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-sidebar-drag.vm")
 
