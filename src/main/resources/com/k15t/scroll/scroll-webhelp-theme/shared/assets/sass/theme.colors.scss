@@ -130,6 +130,15 @@ a, span, li, nav, ul {
         }
       }
     }
+
+    a {
+      color: $color-secondary;
+    }
+
+    h2 a {
+      color: $color-secondary;
+    }
+
   }
 
   .ht-pages-nav {
