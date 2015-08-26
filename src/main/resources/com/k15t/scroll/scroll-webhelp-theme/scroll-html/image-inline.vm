@@ -1,0 +1,3 @@
+#if($renderStart)
+    <img ${idAttribute} ${classAttribute} src="$stringEscapeUtils.escapeHtml($imageFilename)" alt="$stringEscapeUtils.escapeHtml($imageFilename)" #if($element.width) width="$element.width"#end />
+#end

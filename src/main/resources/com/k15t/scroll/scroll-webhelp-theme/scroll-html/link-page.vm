@@ -1,0 +1,1 @@
+#if($renderStart)<a ${idAttribute} ${classAttribute} href="$context.getLinkNamingStrategy().generateLinkString($element.getTargetSource(), $element.getTargetAnchor())">#else</a>#end

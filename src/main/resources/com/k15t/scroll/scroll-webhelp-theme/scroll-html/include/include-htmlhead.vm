@@ -9,6 +9,9 @@
 
 <script type="text/javascript" src="assets/js/theme.main.js"></script>
 
+
+<link rel="stylesheet" href="assets/css/content-style.css">
+
 ## Default Theme Stylesheets
 <link rel="stylesheet" href="assets/css/theme.main.css">
 <link rel="stylesheet" href="assets/css/theme.colors.css">
