@@ -51,6 +51,11 @@
                 
             </div>
         </div>
-      <a id="sp-viewport-control-opener" href="#" class="sp-aui-icon-small sp-aui-iconfont-confluence ht-header-icon ht-confluence-button"></a>
+
+        #if($isPage && $user.loggedIn)
+        <a id="sp-viewport-control-opener" href="#" class="sp-aui-icon-small sp-aui-iconfont-confluence ht-header-icon ht-confluence-button"></a>
+        #else
+        <a id="sp-viewport-control-opener" href="#" style="display:none"></a>
+        #end
     </div>
 </header>
