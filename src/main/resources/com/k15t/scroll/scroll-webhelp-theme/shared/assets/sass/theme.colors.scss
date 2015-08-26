@@ -66,6 +66,16 @@ a, span, li, nav, ul {
 #ht-sidebar {
   background-color: $color-sidebar;
 
+  .ht-sidebar-header {
+    a {
+      color: $color-secondary;
+    }
+
+    h2 a {
+      color: $color-secondary;
+    }
+  }
+
   .ht-scroll-versions-widget {
     border-top: 1px solid $color-lines;
     border-bottom: 1px solid $color-lines;
@@ -130,15 +140,6 @@ a, span, li, nav, ul {
         }
       }
     }
-
-    a {
-      color: $color-secondary;
-    }
-
-    h2 a {
-      color: $color-secondary;
-    }
-
   }
 
   .ht-pages-nav {
