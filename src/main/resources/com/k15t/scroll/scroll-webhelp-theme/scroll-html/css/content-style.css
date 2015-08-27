@@ -1,19 +1,22 @@
+/* Misc ******************************************************************************************/
+
 .wiki-content .error {
     background-color: #FFCCCC;
 }
 
-/* Remove margin before/after paras within lists. ************************************************/
-.wiki-content li p {
-    margin: 0;
-}
 
-.wiki-content ol, ul {
-    padding-left: 3em;
-}
+/* Paragraphs ************************************************************************************/
 
 .wiki-content p {
     margin: 10px 0 0 0;
 }
+
+.wiki-content p:first-child {
+    margin: 0;
+}
+
+
+/* Images ****************************************************************************************/
 
 .wiki-content img {
     max-width: 100%;
@@ -22,6 +25,7 @@
 .wiki-content img.confluence-content-image-border {
     border: 1px solid black;
 }
+
 
 /* Heading Styling *******************************************************************************/
 
@@ -219,6 +223,135 @@
 }
 
 
+/* Blockquote ************************************************************************************/
+
+.wiki-content blockquote {
+    border-left: 1px solid #3C78B5;
+    color: #222222;
+    font-style: italic;
+    margin: 1.5em 1em;
+    padding-left: 1em;
+}
+
+
+/* Captions **************************************************************************************/
+
+.wiki-content .caption {
+	font-weight: bold;
+	padding-top: 0.5em;
+}
+
+cite:before {
+    content: "\2014 \2009";
+}
+
+
+/* Lists *****************************************************************************************/
+
+.wiki-content ol, ul {
+    padding-left: 3em;
+}
+
+.wiki-content ol,
+.wiki-content ol ol ol ol,
+.wiki-content ol ol ol ol ol ol ol,
+.wiki-content ol ol ol ol ol ol ol ol ol ol {
+    list-style-type: decimal;
+}
+
+.wiki-content ol ol,
+.wiki-content ol ol ol ol ol,
+.wiki-content ol ol ol ol ol ol ol ol,
+.wiki-content ol ol ol ol ol ol ol ol ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+.wiki-content ol ol ol,
+.wiki-content ol ol ol ol ol ol,
+.wiki-content ol ol ol ol ol ol ol ol ol,
+.wiki-content ol ol ol ol ol ol ol ol ol ol ol ol {
+    list-style-type: lower-roman;
+}
+
+
+/* Status Macro **********************************************************************************/
+
+.wiki-content span.status {
+    display: inline-block;
+    min-width: 7.5em;
+    margin: 1px 0px;
+    padding: 2px 5px 2px 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    line-height: 1.1em;
+    font-weight: bold;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.wiki-content span.status.grey {
+    color: #333333;
+    background-color: #cccccc;
+    border: 1px solid #cccccc;
+}
+
+.wiki-content span.status.grey.subtle {
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+}
+
+.wiki-content span.status.red {
+    color: #ffffff;
+    background-color: #d04437;
+    border: 1px solid #d04437;
+}
+
+.wiki-content span.status.red.subtle {
+    color: #d04437;
+    background-color: #ffffff;
+    border: 1px solid #f8d3d1;
+}
+
+.wiki-content span.status.green {
+    color: #ffffff;
+    background-color: #14892c;
+    border: 1px solid #14892c;
+}
+
+.wiki-content span.status.green.subtle {
+    color: #14892c;
+    background-color: #ffffff;
+    border: 1px solid #b2d8b9;
+}
+
+.wiki-content span.status.yellow {
+    color: #594300;
+    background-color: #ffd351;
+    border: 1px solid #ffd351;
+}
+
+.wiki-content span.status.yellow.subtle {
+    color: #594300;
+    background-color: #ffffff;
+    border: 1px solid #ffe28c;
+}
+
+.wiki-content span.status.blue {
+    color: #ffffff;
+    background-color: #4a6785;
+    border: 1px solid #4a6785;
+}
+
+.wiki-content span.status.blue.subtle {
+    color: #4a6785;
+    background-color: #ffffff;
+    border: 1px solid #e4e8ed;
+}
+
+
 /* Panels, Admonitions ***************************************************************************/
 
 .wiki-content div.confbox {
@@ -326,131 +459,6 @@
 }
 
 
-/* Blockquote ************************************************************************************/
-
-.wiki-content blockquote {
-    border-left: 1px solid #3C78B5;
-    color: #222222;
-    font-style: italic;
-    margin: 1.5em 1em;
-    padding-left: 1em;
-}
-
-
-/* Captions **************************************************************************************/
-
-.wiki-content .caption {
-	font-weight: bold;
-	padding-top: 0.5em;
-}
-
-cite:before {
-    content: "\2014 \2009";
-}
-
-
-/* Lists *****************************************************************************************/
-
-.wiki-content ol,
-.wiki-content ol ol ol ol,
-.wiki-content ol ol ol ol ol ol ol,
-.wiki-content ol ol ol ol ol ol ol ol ol ol {
-    list-style-type: decimal;
-}
-
-.wiki-content ol ol,
-.wiki-content ol ol ol ol ol,
-.wiki-content ol ol ol ol ol ol ol ol,
-.wiki-content ol ol ol ol ol ol ol ol ol ol ol {
-    list-style-type: lower-alpha;
-}
-
-.wiki-content ol ol ol,
-.wiki-content ol ol ol ol ol ol,
-.wiki-content ol ol ol ol ol ol ol ol ol,
-.wiki-content ol ol ol ol ol ol ol ol ol ol ol ol {
-    list-style-type: lower-roman;
-}
-
-
-/* Status Macro **********************************************************************************/
-
-.wiki-content span.status {
-    display: inline-block;
-    min-width: 7.5em;
-    margin: 1px 0px;
-    padding: 2px 5px 2px 5px;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 0.7em;
-    line-height: 1.1em;
-    font-weight: bold;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-
-.wiki-content span.status.grey {
-    color: #333333;
-    background-color: #cccccc;
-    border: 1px solid #cccccc;
-}
-
-.wiki-content span.status.grey.subtle {
-    color: #333333;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-}
-
-.wiki-content span.status.red {
-    color: #ffffff;
-    background-color: #d04437;
-    border: 1px solid #d04437;
-}
-
-.wiki-content span.status.red.subtle {
-    color: #d04437;
-    background-color: #ffffff;
-    border: 1px solid #f8d3d1;
-}
-
-.wiki-content span.status.green {
-    color: #ffffff;
-    background-color: #14892c;
-    border: 1px solid #14892c;
-}
-
-.wiki-content span.status.green.subtle {
-    color: #14892c;
-    background-color: #ffffff;
-    border: 1px solid #b2d8b9;
-}
-
-.wiki-content span.status.yellow {
-    color: #594300;
-    background-color: #ffd351;
-    border: 1px solid #ffd351;
-}
-
-.wiki-content span.status.yellow.subtle {
-    color: #594300;
-    background-color: #ffffff;
-    border: 1px solid #ffe28c;
-}
-
-.wiki-content span.status.blue {
-    color: #ffffff;
-    background-color: #4a6785;
-    border: 1px solid #4a6785;
-}
-
-.wiki-content span.status.blue.subtle {
-    color: #4a6785;
-    background-color: #ffffff;
-    border: 1px solid #e4e8ed;
-}
-
-
 /* Program Listings ******************************************************************************/
 
 .wiki-content div.programlisting {
@@ -473,28 +481,84 @@ cite:before {
     background-color: transparent;
 }
 
-.wiki-content .syntaxhighlighter {font-family:"Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace;}
-.wiki-content .syntaxhighlighter div.line {padding: 0; margin: 0; background-color: transparent;}
-.wiki-content .syntaxhighlighter div.line code {white-space: pre-wrap; word-wrap: break-word; tab-size: 4;}
+.wiki-content .syntaxhighlighter {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
 
-/* Default Syntax Highlighting Theme */
-.wiki-content .syntaxhighlighter{background-color:#fff;}
+.wiki-content .syntaxhighlighter div.line {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+.wiki-content .syntaxhighlighter div.line code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    tab-size: 4;
+}
+
+
+/* Default Syntax Highlighting Theme *************************************************************/
+
+.wiki-content .syntaxhighlighter {
+    background-color: #fff;
+}
+
 .wiki-content .syntaxhighlighter .plain,
-.wiki-content .syntaxhighlighter .plain a{color: #000;}
+.wiki-content .syntaxhighlighter .plain a {
+    color: #000;
+}
+
 .wiki-content .syntaxhighlighter .comments,
-.wiki-content .syntaxhighlighter .comments a{color: #008200;}
+.wiki-content .syntaxhighlighter .comments a {
+    color: #008200;
+}
+
 .wiki-content .syntaxhighlighter .string,
-.wiki-content .syntaxhighlighter .string a{color: #036;}
-.wiki-content .syntaxhighlighter .keyword{color: #369;font-weight: bold;}
-.wiki-content .syntaxhighlighter .preprocessor{color: gray;}
-.wiki-content .syntaxhighlighter .variable{color: #a70;}
-.wiki-content .syntaxhighlighter .value{color: #090;}
-.wiki-content .syntaxhighlighter .functions{color: #ff1493;}
-.wiki-content .syntaxhighlighter .constants{color: #0066CC;}
-.wiki-content .syntaxhighlighter .script{background-color: yellow;}
+.wiki-content .syntaxhighlighter .string a {
+    color: #036;
+}
+
+.wiki-content .syntaxhighlighter .keyword {
+    color: #369;
+    font-weight: bold;
+}
+
+.wiki-content .syntaxhighlighter .preprocessor {
+    color: gray;
+}
+
+.wiki-content .syntaxhighlighter .variable {
+    color: #a70;
+}
+
+.wiki-content .syntaxhighlighter .value {
+    color: #090;
+}
+
+.wiki-content .syntaxhighlighter .functions {
+    color: #ff1493;
+}
+
+.wiki-content .syntaxhighlighter .constants {
+    color: #0066CC;
+}
+
+.wiki-content .syntaxhighlighter .script {
+    background-color: yellow;
+}
+
 .wiki-content .syntaxhighlighter .color1,
-.wiki-content .syntaxhighlighter .color1 a{color: #808080;}
+.wiki-content .syntaxhighlighter .color1 a {
+    color: #808080;
+}
+
 .wiki-content .syntaxhighlighter .color2,
-.wiki-content .syntaxhighlighter .color2 a{color: #ff1493;}
+.wiki-content .syntaxhighlighter .color2 a {
+    color: #ff1493;
+}
+
 .wiki-content .syntaxhighlighter .color3,
-.wiki-content .syntaxhighlighter .color3 a{color: red;}
+.wiki-content .syntaxhighlighter .color3 a {
+    color: red;
+}
