@@ -134,7 +134,7 @@ function toggleSidebar() {
             $('body,html').scrollTop(0);
             setTimeout(function () {
                 $('body,html').scrollTop(tmpscroll);
-            }, 375);
+            }, 500);
         }
 
     } else {
