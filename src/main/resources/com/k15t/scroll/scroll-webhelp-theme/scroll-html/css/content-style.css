@@ -2,17 +2,16 @@
     background-color: #FFCCCC;
 }
 
-/* Remove margin before/after paras within lists. ************************************************/
-.wiki-content li p {
-    margin: 0;
-}
-
 .wiki-content ol, ul {
     padding-left: 3em;
 }
 
 .wiki-content p {
     margin: 10px 0 0 0;
+}
+
+.wiki-content p:first-child {
+    margin: 0;
 }
 
 .wiki-content img {
