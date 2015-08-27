@@ -11,7 +11,8 @@ var svdropdown = false;
 //var pageId;
 
 // firefox detection
-var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+var isFirefox = typeof InstallTrigger !== 'undefined'; // Firefox 1.0+
+var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0; // At least Safari 3+: "[object HTMLElementConstructor]"
 
 $(document).ready(function ($) {
 
@@ -39,7 +40,6 @@ $(document).ready(function ($) {
     $('#ht-error-search-button').bind('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        console.log($('#ht-search'));
         openSearch();
     });
 
@@ -119,19 +119,6 @@ function initSidebar() {
         e.preventDefault();
         setTimeout(toggleSidebar(), 0.05);
     });
-
-    $('.ht-sidebar-cunfluence-toggle').bind('click', function (e) {
-        e.preventDefault();
-        var icon = $(this).find('i');
-
-        if ($('.ht-sidebar-confluence-container').hasClass('open')) {
-            $('.ht-sidebar-confluence-container').removeClass('open');
-            icon.removeClass('sp-aui-iconfont-close-dialog').addClass('sp-aui-iconfont-arrow-up');
-        } else {
-            $('.ht-sidebar-confluence-container').addClass('open');
-            icon.removeClass('sp-aui-iconfont-arrow-up').addClass('sp-aui-iconfont-close-dialog');
-        }
-    });
 }
 
 var tmpscroll;
@@ -142,8 +129,14 @@ function toggleSidebar() {
         $('html').removeClass('show-sidebar');
         $('body').scrollTop(tmpscroll);
         $('#ht-wrap-container, #ht-wrap-container *').unbind('click', toggleSidebar);
-        $('.ht-sidebar-confluence-container').removeClass('open');
-        $('.ht-sidebar-cunfluence-toggle i').removeClass('sp-aui-iconfont-close-dialog').addClass('sp-aui-iconfont-arrow-up');
+
+        if (viewport == 'mobile' && isSafari) {
+            $('body,html').scrollTop(0);
+            setTimeout(function () {
+                $('body,html').scrollTop(tmpscroll);
+            }, 375);
+        }
+
     } else {
         tmpscroll = $('body').scrollTop();
         $('html').addClass('show-sidebar');
@@ -169,7 +162,6 @@ function initSearch() {
 
     input.on('input', function (e) {
         var str = input.val();
-        console.log(str);
         if (str.length >= 3)doSearch(str);
         if (str.length == 0)$('.ht-search-dropdown').removeClass('open');
     });
