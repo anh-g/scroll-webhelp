@@ -195,51 +195,35 @@ function closeSearch() {
 
 function doSearch(str) {
     var search = $('.ht-search-input');
-    var action = $('#search').attr('action');
-    var query = "q=" + str;
-
-    var version = $('#search #version');
-    if (typeof version != 'undefined' && version.length > 0) {
-        query = query + "&" + version.attr('name') + "=" + version.attr('value');
-    }
-
-    var variant = $('#search #variant');
-    if (typeof variant != 'undefined' && variant.length > 0) {
-        query = query + "&" + variant.attr('name') + "=" + variant.attr('value');
-    }
-
-    var language = $('#search #language');
-    if (typeof language != 'undefined' && language.length > 0) {
-        query = query + "&" + language.attr('name') + "=" + language.attr('value');
-    }
 
     var dropdown = search.find('.ht-search-dropdown');
-    var key = search.find('.search-input').val();
+    var key = str;
     var count = 0;
 
-    dropdown.find('ul').empty();
+    var resultsList = dropdown.find('ul');
+    resultsList.empty();
 
-    dropdown.load(action + " #quick-search-results>ul", query + "&quicksearch=true", function () {
+    var handleSearchResults = function (searchResults) {
         $(document).unbind('keydown');
-        $.each(dropdown.find('li'), function (index, val) {
-            var item = $(this);
-            item.attr('n', index);
-            item.bind('mouseover', function () {
 
-                dropdown.find('li a').removeClass('hover');
-                $(this).find('a').addClass('hover');
+        count = searchResults.length;
 
-            });
-            dropdown.find('ul').append(item);
-            count++;
+        $.each(searchResults, function (index, searchResult) {
+            resultsList.append('<li n="' + index + '" class="search-result"><a href="' + searchResult.link + '">' + searchResult.title + '</a></li>');
         });
 
-        var keybutton = $('<li class="search-key" n="' + count + '"><a class="search-key-button" href="' + action + '?' + query + '">Search: <b>' + key + '</b></a></li>');
-        keybutton.bind('mouseover', function () {
+        resultsList.children('li').each(function(index, item) {
+            var li = $(item);
+            li.bind('mouseover', function () {
+                resultsList.find('li a').removeClass('hover');
+                li.find('a').addClass('hover');
+            });
+        });
 
+        var keybutton = $('<li class="search-key" n="' + count + '"><a class="search-key-button" href="' + $('#search').attr('action') + '?q=' + key + '">Search: <b>' + key + '</b></a></li>'); //TODO scroll versions url params missing, move this into VPRT specific file.
+        keybutton.bind('mouseover', function () {
             dropdown.find('li a').removeClass('hover');
             $(this).find('a').addClass('hover');
-
         });
         dropdown.find('ul').append(keybutton);
 
@@ -270,7 +254,12 @@ function doSearch(str) {
         });
 
         dropdown.addClass('open');
-    });
+    };
+
+    if (window.SCROLL_WEBHELP && window.SCROLL_WEBHELP.search) {
+        window.SCROLL_WEBHELP.search.onResultsAvailable = handleSearchResults;
+        window.SCROLL_WEBHELP.search.performSearch(key);
+    }
 }
 
 function dropdownKeydown(direction, dropdown) {

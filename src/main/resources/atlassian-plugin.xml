@@ -28,6 +28,7 @@
         <resource name="assets/js/theme.main.js"                        location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/theme.main.js"/>
 
         <resource name="assets/js/scroll-tree.js"                       location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/js/scroll-tree.js"/>
+        <resource name="assets/js/scroll-search.js"                     location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/js/scroll-search.js"/>
 
         <resource name="include/include-breadcrumb.vm"                  location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-breadcrumb.vm"/>
         <resource name="include/include-content.vm"                     location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/include/include-content.vm"/>
@@ -96,7 +97,10 @@
             The 'location' attribute contains the relative path to the file within the 'src/main/resources' directory of the plugin.
         -->
         <resource type="static-resource"    name="assets/js/scroll-tree.js"                     location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/js/scroll-tree.js"/>
+        <resource type="static-resource"    name="assets/js/scroll-search.js"                   location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/js/scroll-search.js"/>
+        <resource type="static-resource"    name="assets/js/jquery.highlight.js"                location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/js/jquery.highlight.js"/>
         <resource type="static-resource"    name="assets/css/content-style.css"                 location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/css/content-style.css"/>
+        <resource type="static-resource"    name="assets/css/search.css"                        location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/css/search.css"/>
 
         <resource type="static-resource"    name="assets/css/theme.colors.css"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.colors.css"/>
         <resource type="static-resource"    name="assets/css/theme.confluence-inline-tasks.css" location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.confluence-inline-tasks.css"/>

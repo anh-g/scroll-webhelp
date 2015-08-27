@@ -1,0 +1,15 @@
+#ht-search .ht-search-index-loader {
+    background: url(../images/loader.gif) 0 2px no-repeat;
+    width: 164px;
+    padding-left: 21px;
+    line-height: 17px;
+    pointer-events: auto;
+    position: relative;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 3px;
+}
+
+.search-highlight {
+    background-color: #f6c342 !important;
+}

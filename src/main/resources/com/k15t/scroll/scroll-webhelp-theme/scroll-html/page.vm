@@ -8,7 +8,45 @@
 
     #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-htmlhead.vm")
 
+    #if ($context.BuildSearchIndex)
+        <!-- ES5 support for older browsers, needed by lunr -->
+        <script src="js/augment.js"></script>##TODO maybe this can be dropped, if no old browsers (IE) need to be supported
+
+        <script id="worker" type="javascript/worker">
+
+        startIndex = function() {
+            idx = lunr.Index.load(lunrIndex);
+            idx.pipeline.remove(lunr.stopWordFilter);
+            postMessage({type: "setup-complete"});
+        }
+
+        onmessage = function (event) {
+            var message = event.data;
+
+            if ((message.type === 'setup') && message.baseUrl) {
+                var url = message.baseUrl;
+                importScripts(url + 'js/lunr.js');
+                importScripts(url + 'js/lunr-extras.js');
+                importScripts(url + 'js/lunr-index.js');
+                importScripts(url + 'js/lunr-data.js');
+                startIndex();
+            }
+
+            if (idx && (message.type === 'search-request') && message.query) {
+                var searchWord = message.query;
+                var results = idx.search(searchWord).map(function (result) {
+                    return lunrData.filter(function (d) {
+                        return d.id === parseInt(result.ref, 10)
+                    })[0]
+                });
+                postMessage({type: 'search-results', results: results, query: searchWord});
+            }
+        }
+
+    </script>
+    #end
 </head>
+
 <body pageid="$page.id">
 
 <div id="ht-loader"></div>
@@ -32,7 +70,7 @@
             <h1>$stringEscapeUtils.escapeHtml($element.Title)</h1>
         </header>
 
-        <div id="ht-wiki-content" class="wiki-content">
+        <div id="ht-wiki-content" class="wiki-content" data-index-for-search="true">
 #else
         </div>
 
@@ -51,6 +89,12 @@
 <div>
     <div id="ht-mq-detect"></div>
 </div>
+
+#if ($context.BuildSearchIndex)
+    <script src="js/lunr.js"></script>
+    <script src="js/lunr-extras.js"></script>
+    <script src="assets/js/scroll-search.js"></script>
+#end
 
 </body>
 </html>

@@ -3,6 +3,10 @@
 
 ## jQuery
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+#if ($context.BuildSearchIndex)
+    <script type="text/javascript" src="assets/js/jquery.highlight.js"></script>
+#end
+
 
 ## Scroll tree implementation
 <script type="text/javascript" src="assets/js/scroll-tree.js"></script>
@@ -11,6 +15,9 @@
 
 
 <link rel="stylesheet" href="assets/css/content-style.css">
+#if ($context.BuildSearchIndex)
+    <link rel="stylesheet" href="assets/css/search.css">
+#end
 
 ## Default Theme Stylesheets
 <link rel="stylesheet" href="assets/css/theme.main.css">

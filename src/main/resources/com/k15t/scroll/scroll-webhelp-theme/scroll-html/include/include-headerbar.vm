@@ -2,9 +2,12 @@
     <div class="ht-headerbar-left">
         <a href="" id="ht-menu-toggle" class="sp-aui-icon-small sp-aui-iconfont-appswitcher"></a>
     </div>
-    <div class="ht-headerbar-right ">
-      	<div id="ht-search">
-            <div class="ht-search-input">
+    <div class="ht-headerbar-right">
+    #if ($context.BuildSearchIndex)
+        <div class="ht-search-index-loader">Loading Search Index</div>
+
+        <div id="ht-search">
+            <div class="ht-search-input" style="display: none;">
               	<a href="#" class="sp-aui-icon-small sp-aui-iconfont-remove ht-search-clear"></a>
 
                 <form action="/search" method="GET" id="search">
@@ -27,5 +30,8 @@
                 </div>
             </div>
         </div>
+
+        <a id="sp-remove-search-flags" style="display: none;" href="#" class="sp-aui-icon-small sp-aui-iconfont-flag ht-header-icon ht-confluence-button"></a>
     </div>
+    #end
 </header>
