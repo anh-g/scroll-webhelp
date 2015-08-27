@@ -199,19 +199,17 @@ function doSearch(str) {
     var query = "q=" + str;
 
     var version = $('#search #version');
-    if (typeof version != 'undefined') {
+    if (typeof version != 'undefined' && version.length > 0) {
         query = query + "&" + version.attr('name') + "=" + version.attr('value');
-
     }
 
     var variant = $('#search #variant');
-    if (typeof variant != 'undefined') {
+    if (typeof variant != 'undefined' && variant.length > 0) {
         query = query + "&" + variant.attr('name') + "=" + variant.attr('value');
-
     }
 
     var language = $('#search #language');
-    if (typeof language != 'undefined') {
+    if (typeof language != 'undefined' && language.length > 0) {
         query = query + "&" + language.attr('name') + "=" + language.attr('value');
     }
 
