@@ -39,7 +39,7 @@
                         return d.id === parseInt(result.ref, 10)
                     })[0]
                 });
-                postMessage({type: 'search-results', results: results, query: searchWord});
+                postMessage({type: 'search-results', results: results, query: searchWord, queryId: message.queryId});
             }
         }
 
@@ -64,7 +64,7 @@
 
     #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-sidebar-drag.vm")
 
-    <article class="ht-content">
+    <article id="ht-content" class="ht-content">
         <header class="ht-content-header">
             #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-breadcrumb.vm")
             <h1>$stringEscapeUtils.escapeHtml($element.Title)</h1>
@@ -82,6 +82,18 @@
     ## ----------------------------------------------------------------------------------------------------------------------------------
     ## End of include-content.vm in viewport
     ## ----------------------------------------------------------------------------------------------------------------------------------
+
+    <article id="html-search-results" class="ht-content" style="display: none;">
+        <header class="ht-content-header">
+            <div id="ht-spacetitle">
+                <ul>
+                    <li><a href="$context.getLinkNamingStrategy().generateLinkString($context.sourceTree)">$stringEscapeUtils.escapeHtml($space.name)</a></li>
+                </ul>
+            </div>
+            <h1>Search results</h1>
+        </header>
+        <div id="search-results"></div>
+    </article>
 
     #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-footer.vm")
 </div>

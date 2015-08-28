@@ -13,3 +13,12 @@
 .search-highlight {
     background-color: #f6c342 !important;
 }
+
+#ht-wrap-container .ht-content #search-results .search-result h2 {
+    line-height: 1.25;
+}
+
+#ht-wrap-container .ht-content #search-results .search-result hr {
+    border: none;
+    border-bottom: 1px solid #ccc;
+}

@@ -167,6 +167,9 @@ function initSearch() {
     });
 
 
+    $('form#search').on('submit', function() {
+        return false;
+    });
 }
 
 function openSearch() {
@@ -191,26 +194,37 @@ function closeSearch() {
     input.removeClass('open');
     $('.ht-search-clear').removeClass('show');
     input.find('.ht-search-dropdown').removeClass('open');
+    $(document).unbind('keydown');
 }
 
-function doSearch(str) {
-    var search = $('.ht-search-input');
 
-    var dropdown = search.find('.ht-search-dropdown');
-    var key = str;
-    var count = 0;
+function navigateToSearchResultsPage(query) {
+    if (window.SCROLL_WEBHELP && window.SCROLL_WEBHELP.search) {
+        window.SCROLL_WEBHELP.search.navigateToSearchPage(query);
+        closeSearch();
+    }
+}
 
+
+function doSearch(query) {
+    var dropdown = $('.ht-search-input .ht-search-dropdown');
     var resultsList = dropdown.find('ul');
+
     resultsList.empty();
 
-    var handleSearchResults = function (searchResults) {
+    var handleSearchResults = function(searchResults, query) {
         $(document).unbind('keydown');
-
-        count = searchResults.length;
 
         $.each(searchResults, function (index, searchResult) {
             resultsList.append('<li n="' + index + '" class="search-result"><a href="' + searchResult.link + '">' + searchResult.title + '</a></li>');
         });
+
+        var keybutton = $('<li class="search-key" n="' + searchResults.length + '"><a class="search-key-button" href="#">Search: <b>' + query + '</b></a></li>');
+        keybutton.bind('click', function(e) {
+            navigateToSearchResultsPage(query);
+            e.preventDefault();
+        });
+        resultsList.append(keybutton);
 
         resultsList.children('li').each(function(index, item) {
             var li = $(item);
@@ -220,21 +234,18 @@ function doSearch(str) {
             });
         });
 
-        var keybutton = $('<li class="search-key" n="' + count + '"><a class="search-key-button" href="' + $('#search').attr('action') + '?q=' + key + '">Search: <b>' + key + '</b></a></li>'); //TODO scroll versions url params missing, move this into VPRT specific file.
-        keybutton.bind('mouseover', function () {
-            dropdown.find('li a').removeClass('hover');
-            $(this).find('a').addClass('hover');
-        });
-        dropdown.find('ul').append(keybutton);
-
         $(document).bind('keydown', function (e) {
             switch (e.which) {
-
                 case 13:
-                    if ($('.ht-search-dropdown a.hover').length != 0) {
-                        window.location.href = $('.ht-search-dropdown a.hover').attr('href');
+                    var selected = $('.ht-search-dropdown a.hover');
+                    if (selected.length != 0) {
+                        if (selected.is('.search-key-button')) {
+                            navigateToSearchResultsPage(query);
+                        } else {
+                            window.location.href = selected.attr('href');
+                        }
                     } else {
-                        window.location.href = $('#search').attr('action') + '?q=' + q;
+                        navigateToSearchResultsPage(query);
                     }
                     break;
 
@@ -257,8 +268,7 @@ function doSearch(str) {
     };
 
     if (window.SCROLL_WEBHELP && window.SCROLL_WEBHELP.search) {
-        window.SCROLL_WEBHELP.search.onResultsAvailable = handleSearchResults;
-        window.SCROLL_WEBHELP.search.performSearch(key);
+        window.SCROLL_WEBHELP.search.performSearch(query, handleSearchResults);
     }
 }
 

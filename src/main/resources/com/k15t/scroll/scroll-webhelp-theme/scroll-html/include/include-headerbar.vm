@@ -10,7 +10,7 @@
             <div class="ht-search-input" style="display: none;">
               	<a href="#" class="sp-aui-icon-small sp-aui-iconfont-remove ht-search-clear"></a>
 
-                <form action="/search" method="GET" id="search">
+                <form action="#" method="GET" id="search">
                     <input class="search-input" type="text" placeholder="Search" tabindex="-1" autocomplete="off" name="q" value="">
                     <input type="hidden" name="max" value="15" />
                     <input type="submit" style="display:none" tabindex="-4"/>
