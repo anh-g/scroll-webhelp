@@ -3,9 +3,6 @@
 
 ## jQuery
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-#if ($context.BuildSearchIndex)
-    <script type="text/javascript" src="assets/js/jquery.highlight.js"></script>
-#end
 
 
 ## Scroll tree implementation

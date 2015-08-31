@@ -30,8 +30,6 @@
                 </div>
             </div>
         </div>
-
-        <a id="sp-remove-search-flags" style="display: none;" href="#" class="sp-aui-icon-small sp-aui-iconfont-flag ht-header-icon ht-confluence-button"></a>
     </div>
     #end
 </header>

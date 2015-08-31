@@ -33,7 +33,7 @@
             })[0];
         });
 
-        return processSearchResults(results, query);
+        return results;
     };
 
 
@@ -41,14 +41,6 @@
         var queryId = new Date().getTime();
         queryCallbacks[queryId] = callback;
         worker.postMessage({type: 'search-request', query: query, queryId: queryId});
-    };
-
-
-    var processSearchResults = function(results, query) {
-        $.each(results, function(idx, result) {
-            result.link = result.link + '?q=' + query;
-        });
-        return results;
     };
 
 
@@ -69,7 +61,7 @@
         var baseUrl = window.location.href.substr(0, window.location.href.lastIndexOf('/') + 1);
 
         $.each(searchResults, function(index, searchResult) {
-            var displayUrl = baseUrl + searchResult.link.substr(0, searchResult.link.lastIndexOf('?'));
+            var displayUrl = baseUrl + searchResult.link;
             list.append('<section class="search-result">'
                 +'<header><h2><a href="' + searchResult.link + '">' + searchResult.title + '</a></h2></header>'
                 +'<div class="search-result-content"><p class="search-result-link">' + displayUrl + '</p></div>'
@@ -110,7 +102,7 @@
                     var callback = queryCallbacks[message.queryId];
                     if (callback) {
                         delete queryCallbacks[message.queryId];
-                        callback(processSearchResults(message.results, message.query), message.query);
+                        callback(message.results, message.query);
                     }
                 }
             };
@@ -169,38 +161,8 @@
     }
 
 
-    var getQueryVariable =  function(variable) {
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i=0;i<vars.length;i++) {
-            var pair = vars[i].split("=");
-            if(pair[0] == variable){return pair[1];}
-        }
-        return(false);
-    };
-
-
-    var highlightSetup = function() {
-        var htmlSearchQuery = getQueryVariable('q');
-
-        if (htmlSearchQuery != false) {
-            var flag = $('#sp-remove-search-flags');
-            flag.bind('click', function(e) {
-                $('#ht-wrap-container').unhighlight({className: 'search-highlight'});
-                flag.hide();
-                e.preventDefault();
-            });
-            flag.show();
-
-            var decodedQuery = decodeURI(htmlSearchQuery);
-            $('#ht-wrap-container').highlight(decodedQuery, {className: 'search-highlight'});
-        }
-    };
-
-
     $(document).ready(function () {
         searchSetup();
-        highlightSetup();
     });
 
 }());

@@ -98,7 +98,6 @@
         -->
         <resource type="static-resource"    name="assets/js/scroll-tree.js"                     location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/js/scroll-tree.js"/>
         <resource type="static-resource"    name="assets/js/scroll-search.js"                   location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/js/scroll-search.js"/>
-        <resource type="static-resource"    name="assets/js/jquery.highlight.js"                location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/js/jquery.highlight.js"/>
         <resource type="static-resource"    name="assets/css/content-style.css"                 location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/css/content-style.css"/>
         <resource type="static-resource"    name="assets/css/search.css"                        location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/css/search.css"/>
 
