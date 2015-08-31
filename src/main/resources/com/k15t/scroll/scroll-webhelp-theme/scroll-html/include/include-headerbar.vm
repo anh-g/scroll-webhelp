@@ -4,7 +4,7 @@
     </div>
     <div class="ht-headerbar-right">
     #if ($context.BuildSearchIndex)
-        <div class="ht-search-index-loader">Loading Search Index</div>
+        <div class="sp-aui-icon-small ht-search-index-loader ht-header-icon"></div>
 
         <div id="ht-search">
             <div class="ht-search-input" style="display: none;">
