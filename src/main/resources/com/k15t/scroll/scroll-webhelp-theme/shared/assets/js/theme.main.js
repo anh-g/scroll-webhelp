@@ -80,8 +80,6 @@ function initDragbar() {
 }
 
 function setDragbar(val) {
-    // TODO chrome checken
-    // evtl. width inline über viewport
     if (viewport != 'desktop')return;
 
     if (val == NaN)val = 295;

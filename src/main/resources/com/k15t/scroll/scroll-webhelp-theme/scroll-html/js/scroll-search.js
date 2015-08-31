@@ -109,7 +109,6 @@
 
             // what the worker does in case of an error
             worker.onerror = function(error) {
-                console.log("Worker error: " + error.message + "\n");
                 error.preventDefault();
                 throw(error);
             };

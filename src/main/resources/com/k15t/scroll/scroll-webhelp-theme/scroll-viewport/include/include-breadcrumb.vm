@@ -9,7 +9,7 @@
                 #else
                     #if ($shortcut == false)
                         #set( $shortcut = true )
-                        <li><a href="" onclick="$('.shortcut').each(function(){console.log($(this).removeClass('shortcut'))}); $(this).parent().addClass('shortcut'); return false;">...</a>
+                        <li><a href="" onclick="$('.shortcut').each(function(){$(this).removeClass('shortcut')}); $(this).parent().addClass('shortcut'); return false;">...</a>
                         </li>
                         <li class="shortcut"><a href="$ancestor.link">$ancestor.title</a></li>
                     #else
