@@ -40,6 +40,7 @@
                 <directory>src/main/resources</directory>
                 <excludes>
                     <exclude>com/k15t/scroll/scroll-webhelp-theme/shared/assets/sass/**</exclude>
+                    <exclude>com/k15t/scroll/scroll-webhelp-theme/shared/config.rb</exclude>
                 </excludes>
             </resource>
         </resources>
