@@ -123,10 +123,13 @@ function initSidebar() {
 
 var tmpscroll;
 
+var sidebarExpanded = false;
+
 function toggleSidebar() {
     if ($('html').hasClass('show-sidebar')) {
         $('.ht-content').css('margin-top', 'auto');
         $('html').removeClass('show-sidebar');
+        sidebarExpanded = false;
         $('body').scrollTop(tmpscroll);
         $('#ht-wrap-container, #ht-wrap-container *').unbind('click', toggleSidebar);
 
@@ -140,6 +143,7 @@ function toggleSidebar() {
     } else {
         tmpscroll = $('body').scrollTop();
         $('html').addClass('show-sidebar');
+        sidebarExpanded = true;
         $('.ht-content').css('margin-top', '-' + tmpscroll + 'px');
         $('#ht-wrap-container, #ht-wrap-container *').bind('click', toggleSidebar);
     }
@@ -152,10 +156,10 @@ function toggleSidebar() {
 function initSearch() {
     var input = $('#search input.search-input');
     input.on('focus', function (e) {
-        stopKey = true;
+        searchFieldActive = true;
 
         input.on('blur', function (e) {
-            stopKey = false;
+            searchFieldActive = false;
         });
     });
 
@@ -183,7 +187,7 @@ function openSearch() {
     setTimeout(function () {
         $('.ht-search-clear').addClass('show');
     }, 250);
-    stopKey = true;
+    searchFieldActive = true;
     $('.search-input')[0].focus();
 }
 
@@ -514,28 +518,35 @@ function openSelect(selector) {
 /*=====================================
  =             Keyboard              =
  =====================================*/
-var stopKey, lastKey;
+var searchFieldActive;
+var lastKey;
 
 function initKeyboard() {
-    stopKey = false;
+    searchFieldActive = false;
 
     $('body').bind('keyup', function (e) {
-        //if(e.which != 18 && e.which != 16)alert(e.which);
-        if (stopKey && e.which != 27)return;
+        if (searchFieldActive && e.which != 27) {
+            return;
+        }
 
         switch (e.which) {
-            case 219: //[
-                openSearch();
+            case 219: // [
+                if (viewport !== 'desktop') {
+                    toggleSidebar();
+                }
                 break;
 
             case 191: // /
-                stopKey = true;
-
+                if (!sidebarExpanded) {
+                    openSearch();
+                }
                 break;
 
             case 71: // g
                 if (lastKey == 71) {
-                    openSearch();
+                    if (!sidebarExpanded) {
+                        openSearch();
+                    }
                 }
                 break;
 
