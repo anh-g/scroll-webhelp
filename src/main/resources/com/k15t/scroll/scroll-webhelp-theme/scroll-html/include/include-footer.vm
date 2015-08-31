@@ -1,4 +1,3 @@
 <footer id="ht-footer">
-  <small>Powered by <a href="http://atlassian.com/software/confluence" target="_blank">Atlassian Confluence</a> and the <a href="https://www.k15t.com/software/scroll-versions/overview" target="_blank">Scroll Content Management Add-ons</a>.</small>
-  <a href="#" id="ht-jump-top" class="sp-aui-icon-small sp-aui-iconfont-arrows-up"></a>
+    <a href="#" id="ht-jump-top" class="sp-aui-icon-small sp-aui-iconfont-arrows-up"></a>
 </footer>
