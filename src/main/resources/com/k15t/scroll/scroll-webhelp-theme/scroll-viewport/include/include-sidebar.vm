@@ -3,7 +3,7 @@
         <div class="ht-sidebar-content-scroll-container">
             <header class="ht-sidebar-header">
                 <h1 class="ht-logo">
-                    <span class="ht-logo-label">K15t</span>
+                    <span class="ht-logo-label">$repository.Key</span>
                     <img src="$rbUtils.spaceHelper.getSpaceLogoUrl($repository.key, $user.name)" alt="">
                 </h1>
                 <a href="$home.link" class="ht-space-link">
