@@ -4,6 +4,7 @@
       font-size: 1.125em;
       font-weight: normal;
       margin-bottom: 4px;
+      line-height: 1.25;
 
       a {
         text-decoration: none;
@@ -25,6 +26,8 @@
     hr {
       width: 100%;
       margin: 29px 0;
+      border: none;
+      border-bottom: 1px solid #ccc;
     }
 
     .sp-search-highlight {

@@ -7,12 +7,3 @@
     display: block;
     margin-top: 1px;
 }
-
-#ht-wrap-container .ht-content #search-results .search-result h2 {
-    line-height: 1.25;
-}
-
-#ht-wrap-container .ht-content #search-results .search-result hr {
-    border: none;
-    border-bottom: 1px solid #ccc;
-}
