@@ -152,6 +152,23 @@ function toggleSidebar() {
  =========================================*/
 
 function initSearch() {
+    var debounce = function(func, wait) {
+        var timeout;
+        var result;
+        return function() {
+            var args = arguments;
+            var context = this;
+            var debounced = function() {
+                result = func.apply(context, args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(debounced, wait);
+            return result;
+        };
+    };
+
+    var debouncedSearch = debounce(doSearch, 200);
+
     var input = $('#search input.search-input');
     input.on('focus', function (e) {
         searchFieldActive = true;
@@ -162,10 +179,14 @@ function initSearch() {
     });
 
 
-    input.on('input', function (e) {
+    input.on('input', function(e) {
         var str = input.val();
-        if (str.length >= 3)doSearch(str);
-        if (str.length == 0)$('.ht-search-dropdown').removeClass('open');
+        if (str.length >= 3) {
+            debouncedSearch(str);
+        }
+        if (str.length == 0) {
+            $('.ht-search-dropdown').removeClass('open');
+        }
     });
 
 
