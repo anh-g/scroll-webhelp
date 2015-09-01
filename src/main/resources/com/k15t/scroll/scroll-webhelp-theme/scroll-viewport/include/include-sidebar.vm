@@ -4,7 +4,7 @@
             <header class="ht-sidebar-header">
                 <h1 class="ht-logo">
                     <span class="ht-logo-label">$repository.Key</span>
-                    <img src="$rbUtils.spaceHelper.getSpaceLogoUrl($repository.key, $user.name)" alt="">
+                    <img src="${theme.baseUrl}/assets/images/theme-logo.png" alt="">
                 </h1>
                 <a href="$home.link" class="ht-space-link">
                     <h2>$repository.name</h2>
