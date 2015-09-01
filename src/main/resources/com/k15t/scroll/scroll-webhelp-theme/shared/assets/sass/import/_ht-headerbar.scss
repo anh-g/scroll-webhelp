@@ -138,6 +138,10 @@
 
 #ht-headerbar {
   @import 'common/ht-dropdown';
+
+  .ht-dropdown ul {
+    padding-top: 0;
+  }
 }
 
 #ht-headerbar {

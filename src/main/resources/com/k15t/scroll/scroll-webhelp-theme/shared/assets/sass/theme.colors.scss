@@ -185,10 +185,6 @@ a, span, li, nav, ul {
   }
 
   li {
-    &.search-key {
-      border-top: 1px solid $color-lines;
-    }
-
     a {
       background-color: white;
 
@@ -199,6 +195,11 @@ a, span, li, nav, ul {
     }
   }
 }
+
+#ht-headerbar .ht-dropdown li.search-key:nth-child(n+2) {
+  border-top: 1px solid $color-lines;
+}
+
 
 /* --- WRAP-CONTAINER ----------------------------------------------------------------------------------------------- */
 #ht-wrap-container {
