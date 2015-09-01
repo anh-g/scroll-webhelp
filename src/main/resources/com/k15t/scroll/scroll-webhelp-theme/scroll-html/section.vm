@@ -1,5 +1,5 @@
 #if($renderStart)
-    #set($lvl = $context.getCombinedSectionLevel() - 1)
+    #set($lvl = $context.getCombinedSectionLevel())#if ($context.ExportMode == "default")#set($lvl=$lvl - 1)#end
     <div class="section section-${lvl}" ${idAttribute}>
         <h${lvl} class="heading $cssClasses">#*
             *##foreach ($annotation in $element.Annotations)#*
