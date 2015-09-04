@@ -67,7 +67,16 @@
     <article id="ht-content" class="ht-content">
         <header class="ht-content-header">
             #parse("com/k15t/scroll/scroll-webhelp-theme/scroll-html/include/include-breadcrumb.vm")
-            <h1>$stringEscapeUtils.escapeHtml($element.Title)</h1>
+            <h1 $idAttribute> #*
+            *##foreach ($annotation in $element.Annotations)#*
+                *##if ($annotation.Class.Name == "com.k15t.scroll.core.model.annotation.BookmarkAnnotation")#*
+                    *#<span id="${annotation.BookmarkId}" class="scroll-bookmark"></span>#*
+                *##end#*
+                *##if ($annotation.Class.Name == "com.k15t.scroll.core.model.annotation.AnchorAnnotation")#*
+                    *#<span id="${annotation.AnchorId}" class="confluence-anchor-link"></span>#*
+                *##end#*
+            *##end#*
+            *#<span>$stringEscapeUtils.escapeHtml($element.Title)</span></h1>
         </header>
 
         <div id="ht-wiki-content" class="wiki-content" data-index-for-search="true">
