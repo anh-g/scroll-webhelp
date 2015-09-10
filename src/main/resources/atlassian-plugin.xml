@@ -13,7 +13,7 @@
 
 
     <!-- Scroll WebHelp Theme for Scroll Viewport, remove this if you don't want to create a Scroll Viewport theme. -->
-    <scroll-viewport-theme key="scroll-webhelp-theme" name="Scroll WebHelp Theme">
+    <scroll-viewport-theme key="scroll-webhelp-theme" name="Scroll WebHelp Theme (Plugin)">
         <resource name="assets/css/theme.colors.css"                    location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.colors.css"/>
         <resource name="assets/css/theme.main.css"                      location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.main.css"/>
         <resource name="assets/fonts/atlassian-icons.eot"               location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/fonts/atlassian-icons.eot"/>
@@ -45,7 +45,7 @@
     </scroll-viewport-theme>
 
     <!-- Scroll Help Theme for Scroll HTML Exporter, remove this if you don't want to create a Scroll HTML Exporter template. -->
-    <scroll-template key="exp-scroll-webhelp-theme" name="Scroll WebHelp Template">
+    <scroll-template key="exp-scroll-webhelp-theme" name="Scroll WebHelp Template (Plugin)">
 
         <!-- This defines whether the default CSS files and images are included in the export or not. -->
         <param name="copyDefaultResources">false</param>
