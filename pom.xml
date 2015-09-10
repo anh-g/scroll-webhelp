@@ -20,6 +20,12 @@
     <name>Scroll WebHelp Theme</name>
     <description>Provides the Scroll WebHelp Theme for Scroll Viewport and Scroll HTML Exporter.</description>
 
+    <!-- Add your organization's details here. -->
+    <organization>
+        <name>K15t Software GmbH</name>
+        <url>http://www.k15t.com/</url>
+    </organization>
+
     <!-- Adapt this to point to your theme's remote git repository or remove it completely if you don't use a remote repository. -->
     <scm>
         <connection>scm:git:ssh://git@bitbucket.org/K15t/scroll-webhelp-theme.git</connection>
