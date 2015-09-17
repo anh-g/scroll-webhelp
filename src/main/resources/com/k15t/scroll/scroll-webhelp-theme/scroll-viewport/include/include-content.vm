@@ -31,7 +31,7 @@
             </svg>
             <span>$page.prev.title</span></a>
     #end
-    #if($page.next && $page.next.absoluteLink != $page.absoluteLink)
+    #if($page.next && $page.next.link != $page.link)
         <a href="$page.next.link" class="ht-post-nav-next">
             <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
