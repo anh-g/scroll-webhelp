@@ -586,19 +586,37 @@ function initKeyboard() {
 function setCookie(cname, cvalue) {
     var d = new Date();
     d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";
+    if (window.location.origin == 'file://') {
+        localStorage.setItem(cname, cvalue);
+        localStorage.setItem(cname + '-expires', d.getTime());
+    } else {
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";
+    }
 }
 
 function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    if (window.location.origin == 'file://') {
+        var cvalue = localStorage.getItem(cname);
+        if (typeof cvalue != 'undefined' && cvalue != "") {
+            var expires = localStorage.getItem(cname + '-expires');
+            var now = (new Date()).getTime();
+            if (expires < now) {
+                return "";
+            } else {
+                return cvalue;
+            }
+        }
+    } else {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "";
     }
-    return "";
 }
 
 /*=====================================
