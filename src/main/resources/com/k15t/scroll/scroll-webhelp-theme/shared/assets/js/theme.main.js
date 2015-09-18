@@ -22,7 +22,10 @@ $(document).ready(function ($) {
 
     /* init Sidebar Functions */
     initDragbar();
-    initSidebar();
+    var initializedSidebar = false;
+    initSidebar(function() {
+        initializedSidebar = true;
+    });
     checkGrid();
 
     /* init Search Functions */
@@ -43,8 +46,20 @@ $(document).ready(function ($) {
         openSearch();
     });
 
-    //setTimeout(function() {$('#ht-loader').hide();}, 500);
-    $('#ht-loader').hide();
+    var scrollPagesNavToCurrentPage = function() {
+        if (initializedSidebar) {
+            if ($('.ht-sidebar-content a.current').length > 0) {
+                $('.ht-sidebar-content').scrollTop($('.ht-sidebar-content a.current').offset().top);
+            }
+            clearInterval(timer);
+            //setTimeout(function() {$('#ht-loader').hide();}, 500);
+            $('#ht-loader').hide();
+        }
+    };
+    timer = setInterval(scrollPagesNavToCurrentPage, 10);
+
+    //even if something was wrong with the sidebar initialization we will complete
+    setTimeout(function() { initializedSidebar = true; }, 500);
 });
 
 /*======================================
@@ -108,9 +123,9 @@ function setScrollVersionSelect(visible) {
  =            Toggle Sidebarnav            =
  =========================================*/
 
-function initSidebar() {
+function initSidebar(successCallback) {
     if (window.SCROLL && window.SCROLL.initPageTree) {
-        window.SCROLL.initPageTree();
+        window.SCROLL.initPageTree(successCallback);
     }
 
     $('#ht-menu-toggle').bind('click', function (e) {

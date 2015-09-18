@@ -1,7 +1,7 @@
 (function() {
     window.SCROLL = window.SCROLL || {};
 
-    SCROLL.initPageTree = function() {
+    SCROLL.initPageTree = function(successCallback) {
         $('a.ht-nav-page-link.current').parents('li').addClass('active open').removeClass('collapsed');
 
         $('ul.ht-pages-nav-top').on('click', '.sp-toggle', function() {
@@ -18,6 +18,8 @@
                 // we don't have children -> no-op
             }
         });
+
+        successCallback();
     };
 
 }());

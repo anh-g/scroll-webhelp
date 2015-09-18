@@ -31,17 +31,22 @@
  
         var opts = $.extend(true, DEFAULT_OPTIONS, options);
  
-        return this.each(function () {
+        var deferred = new $.Deferred();
+        var length = this.length;
+        this.each(function (index) {
             var $rootUl = $(this);
- 
-            loadChildren($rootUl, rootLink, currentLink);
+
+            loadChildren($rootUl, rootLink, currentLink, function() {
+                if (index == length - 1) {
+                    deferred.resolve("Finished loading!");
+                }
+            });
             setupEventHandling($rootUl);
  
-            return this;
         });
- 
- 
-        function loadChildren($ul, parentLink, currentLink) {
+        return deferred.promise();
+
+        function loadChildren($ul, parentLink, currentLink, successCallback) {
             var $parentLi = $ul.closest('li');
             if ($parentLi) {
                 $parentLi.removeClass(opts.css.collapsed)
@@ -59,6 +64,8 @@
  
                     $parentLi.removeClass(opts.css.loading)
                         .addClass(opts.css.expanded);
+
+                    successCallback();
                 })
                 .error(function error(jqXHR, textStatus, errorThrown) {
                     $parentLi.removeClass(opts.css.loading)

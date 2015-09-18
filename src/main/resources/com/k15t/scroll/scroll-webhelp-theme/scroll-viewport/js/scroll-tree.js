@@ -1,7 +1,7 @@
 (function() {
     window.SCROLL = window.SCROLL || {};
 
-    SCROLL.initPageTree = function() {
+    SCROLL.initPageTree = function(successCallback) {
         $('.ht-pages-nav-top').scrollTree({
             'contextPath': AJS.contextPath(),
             'css': {
@@ -39,6 +39,8 @@
 
                 return node;
             }
+        }).done(function() {
+            successCallback();
         });
     };
 
