@@ -584,12 +584,13 @@ function initKeyboard() {
  =====================================*/
 
 function setCookie(cname, cvalue) {
-    var d = new Date();
-    d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
     if (window.location.origin == 'file://') {
-        localStorage.setItem(cname, cvalue);
-        localStorage.setItem(cname + '-expires', d.getTime());
+        if (localStorage) {
+            localStorage.setItem(cname, cvalue);
+        }
     } else {
+        var d = new Date();
+        d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
         var expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";
     }
@@ -597,14 +598,10 @@ function setCookie(cname, cvalue) {
 
 function getCookie(cname) {
     if (window.location.origin == 'file://') {
-        var cvalue = localStorage.getItem(cname);
-        if (typeof cvalue != 'undefined' && cvalue != "") {
-            var expires = localStorage.getItem(cname + '-expires');
-            var now = (new Date()).getTime();
-            if (expires < now) {
-                return "";
-            } else {
-                return cvalue;
+        if (localStorage) {
+            var value = localStorage.getItem(cname);
+            if (typeof value != 'undefined') {
+                return value;
             }
         }
     } else {
@@ -613,10 +610,13 @@ function getCookie(cname) {
         for (var i = 0; i < ca.length; i++) {
             var c = ca[i];
             while (c.charAt(0) == ' ') c = c.substring(1);
-            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
         }
-        return "";
     }
+
+    return "";
 }
 
 /*=====================================
