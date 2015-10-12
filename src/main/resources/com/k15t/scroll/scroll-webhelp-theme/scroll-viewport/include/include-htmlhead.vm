@@ -7,6 +7,9 @@ $page.resources.meta
 ## Confluence JS information
 $page.resources.js
 
+## Custom non-conflicting jQuery instance
+<script type="text/javascript" src="${theme.baseUrl}/assets/js/jquery.min.js"></script>
+<script type="text/javascript">var jQuery_theme= $.noConflict(true);</script>
 ## Scroll tree implementation
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/jquery.scroll-tree.js"></script>
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/scroll-tree.js"></script>

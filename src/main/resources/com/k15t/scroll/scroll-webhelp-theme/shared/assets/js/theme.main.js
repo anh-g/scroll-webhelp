@@ -45,7 +45,7 @@ $(document).ready(function ($) {
 
     //setTimeout(function() {$('#ht-loader').hide();}, 500);
     $('#ht-loader').hide();
-});
+})(jQuery_theme);
 
 /*======================================
  =            Resize Sidebar            =

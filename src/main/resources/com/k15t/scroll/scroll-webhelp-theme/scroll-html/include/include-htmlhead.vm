@@ -3,7 +3,7 @@
 
 ## jQuery
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-
+<script type="text/javascript">var jQuery_theme= $.noConflict(true);</script>
 
 ## Scroll tree implementation
 <script type="text/javascript" src="assets/js/scroll-tree.js"></script>

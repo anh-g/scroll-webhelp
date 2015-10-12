@@ -125,4 +125,4 @@
         }
     };
  
-})(jQuery);
+})(jQuery_theme);
