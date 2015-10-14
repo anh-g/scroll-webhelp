@@ -7,15 +7,14 @@ $page.resources.meta
 ## Confluence JS information
 $page.resources.js
 
-## Custom non-conflicting jQuery instance
+## Setup custom jQuery instance for theme JS files:
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/jquery.min.js"></script>
-<script type="text/javascript">var jQuery_theme= $.noConflict(true);</script>
-## Scroll tree implementation
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/jquery.scroll-tree.js"></script>
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/scroll-tree.js"></script>
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/scroll-search.js"></script>
-
 <script type="text/javascript" src="${theme.baseUrl}/assets/js/theme.main.js"></script>
+## Restore jQuery from Confluence $page.resources:
+<script type="text/javascript">var jQuery_theme = jQuery.noConflict(true);</script>
 
 
 ## Confluence ctx information

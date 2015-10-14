@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
  
     'use strict';
  
@@ -125,4 +125,4 @@
         }
     };
  
-})(jQuery_theme);
+})($);

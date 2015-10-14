@@ -164,4 +164,4 @@
         searchSetup();
     });
 
-})(jQuery_theme);
+})($);

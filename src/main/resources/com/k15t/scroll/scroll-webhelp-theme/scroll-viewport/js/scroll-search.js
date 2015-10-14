@@ -66,4 +66,4 @@
         window.location.href = url;
     };
 
-})(jQuery_theme);
+})($);
