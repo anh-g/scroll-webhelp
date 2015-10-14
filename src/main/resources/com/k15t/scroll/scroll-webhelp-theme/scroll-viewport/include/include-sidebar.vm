@@ -12,6 +12,10 @@
             </header>
 
         ## --- START --- Scroll Versions and Scroll Translations Integration -------------------------------------------
+        ##
+        ## The pickers for versions/variants/languages are only shown if either one of the three is enabled. Furthermore, if there was an
+        ## error (e.g. a page could not be found), we require the content context to be present, otherwise the pickers will not work and
+        ## there is no point in showing them.
             #if (($versions || $variants || $languages) && (!$isError || $contentContext))
                 <section class="ht-scroll-versions-widget">
                     <form action="">
