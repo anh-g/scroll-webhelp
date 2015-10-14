@@ -46,17 +46,19 @@ $(document).ready(function ($) {
         openSearch();
     });
 
+    var intervalId;
     var scrollPagesNavToCurrentPage = function() {
         if (initializedSidebar) {
             if ($('.ht-sidebar-content a.current').length > 0) {
-                $('.ht-sidebar-content').scrollTop($('.ht-sidebar-content a.current').offset().top);
+                setTimeout(function() { // Delay the scrolling to give the browser a bit more time to calculate the tree container height.
+                    $('.ht-sidebar-content').scrollTop($('.ht-sidebar-content a.current').offset().top);
+                }, 100);
             }
-            clearInterval(timer);
-            //setTimeout(function() {$('#ht-loader').hide();}, 500);
+            clearInterval(intervalId);
             $('#ht-loader').hide();
         }
     };
-    timer = setInterval(scrollPagesNavToCurrentPage, 10);
+    intervalId = setInterval(scrollPagesNavToCurrentPage, 10);
 
     //even if something was wrong with the sidebar initialization we will complete
     setTimeout(function() { initializedSidebar = true; }, 500);
