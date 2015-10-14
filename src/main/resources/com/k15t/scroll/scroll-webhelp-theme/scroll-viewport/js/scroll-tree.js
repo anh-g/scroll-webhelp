@@ -1,4 +1,4 @@
-(function() {
+(function($) {
     window.SCROLL = window.SCROLL || {};
 
     SCROLL.initPageTree = function() {
@@ -42,4 +42,4 @@
         });
     };
 
-}());
+})($);

@@ -1,4 +1,4 @@
-(function() {
+(function($) {
     'use strict';
 
     window.SCROLL_WEBHELP = window.SCROLL_WEBHELP || {};
@@ -164,4 +164,4 @@
         searchSetup();
     });
 
-}());
+})($);

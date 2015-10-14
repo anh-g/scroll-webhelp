@@ -20,6 +20,7 @@
         <resource name="assets/fonts/atlassian-icons.svg"               location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/fonts/atlassian-icons.svg"/>
         <resource name="assets/fonts/atlassian-icons.ttf"               location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/fonts/atlassian-icons.ttf"/>
         <resource name="assets/fonts/atlassian-icons.woff"              location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/fonts/atlassian-icons.woff"/>
+        <resource name="assets/js/jquery.min.js"                        location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/jquery.min.js"/>
         <resource name="assets/js/theme.main.js"                        location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/js/theme.main.js"/>
 
         <resource name="assets/js/jquery.scroll-tree.js"                location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/js/jquery.scroll-tree.js"/>
