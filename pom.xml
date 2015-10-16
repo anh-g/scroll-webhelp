@@ -92,6 +92,14 @@
         </plugins>
     </build>
 
+    <!-- This is required to load the k15t master pom, it can be removed when removing the <parent> definition. -->
+    <repositories>
+        <repository>
+            <id>k15t-releases</id>
+            <url>https://nexus.k15t.com/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
