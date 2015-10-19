@@ -4,7 +4,7 @@
             <p class="title">$stringEscapeUtils.escapeHtml($element.title)</p>
         #end
         #if ($element.DisplayIcon)
-            <span class="admonition-icon aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+            <span class="admonition-icon confluence-information-macro-icon"></span>
         #end
         <div class="admonition-body">
 #else
