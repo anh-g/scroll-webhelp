@@ -23,7 +23,6 @@ $page.resources.js
 
 
 ## Confluence ctx information
-$page.resources.requireForContext('atl.general')
 $page.resources.requireForContext('viewcontent')
 
 ## Confluence inline tasks information
