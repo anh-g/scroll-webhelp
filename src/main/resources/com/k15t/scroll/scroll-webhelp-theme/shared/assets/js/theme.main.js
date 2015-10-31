@@ -44,6 +44,9 @@
             openSearch();
         });
 
+        /* handle links to anchors correctly with the headerbar */
+        scrollToPosition();
+
         //setTimeout(function() {$('#ht-loader').hide();}, 500);
         $('#ht-loader').hide();
     });
@@ -147,6 +150,37 @@
             $('#ht-wrap-container, #ht-wrap-container *').bind('click', toggleSidebar);
         }
     }
+
+    /*=========================================
+     =               Headerbar                =
+     =========================================*/
+
+    function scrollToPosition() {
+        var duration = 100;
+        var additionalOffset = 10;
+
+        if (window.location.hash) {
+            // Net to put it at the end of the event loop for making it work in IE :-(
+            setTimeout(function() {
+                $(window).scrollTo(window.location.hash, {offset: -($('#ht-headerbar').height() + additionalOffset), duration: duration, interrupt: true});
+            }, 0);
+        }
+
+        $('a[href^="#"]').click(function (e) {
+            e.preventDefault();
+            $(window).stop(true).scrollTo(this.hash, {
+                'offset': -($('#ht-headerbar').height() + additionalOffset),
+                'duration': duration,
+                'interrupt': true
+            });
+
+            if (history) {
+                history.pushState({}, '', $(e.target).attr('href'));
+            }
+            return false;
+        });
+    }
+
 
     /*=========================================
      =               Search                    =
@@ -444,7 +478,7 @@
             e.preventDefault();
             $('body,html').animate({
                     scrollTop: 0},
-                250);
+                100);
         });
     }
 

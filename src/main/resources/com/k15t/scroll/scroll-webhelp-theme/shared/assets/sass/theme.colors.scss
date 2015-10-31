@@ -200,6 +200,9 @@ a, span, li, nav, ul {
   border-top: 1px solid $color-lines;
 }
 
+#ht-headerbar #ht-search.open .ht-search-input {
+  background-color: white;
+}
 
 /* --- WRAP-CONTAINER ----------------------------------------------------------------------------------------------- */
 #ht-wrap-container {
