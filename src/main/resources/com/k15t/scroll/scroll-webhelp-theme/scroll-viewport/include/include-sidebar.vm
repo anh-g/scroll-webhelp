@@ -36,7 +36,9 @@
                                             tabindex="-2">
                                         #foreach($version in $versions.available)
                                             <option value="$version.value" #if($version.name == $versions.current.name)
-                                                    selected="selected" #end>$version.name</option>
+                                                    selected="selected" #end>$version.name#*
+                                                    *##if($version.value == 'latest') ($version.original.name)#end#*
+                                                    *##if(!$version.isAccessible) (restricted)#end</option> ## TODO use an icon?
                                         #end
                                     </select>
                                 </div>
