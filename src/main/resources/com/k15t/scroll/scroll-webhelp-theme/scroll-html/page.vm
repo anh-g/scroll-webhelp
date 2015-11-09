@@ -79,7 +79,7 @@
             *#<span>$stringEscapeUtils.escapeHtml($element.Title)</span></h1>
         </header>
 
-        <div id="ht-wiki-content" class="wiki-content" data-index-for-search="true">
+        <div id="main-content" class="wiki-content" data-index-for-search="true">
 #else
         </div>
 
