@@ -378,7 +378,7 @@
     function setDropdown(select) {
         var container = select.parent();
         var svg = '<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="ht-select-button-icon"><path d="M2,3 L8,3 L5,7 L2,3 Z"></path></g></svg>';
-        var toggle = $('<a class="ht-select-button" href="#"><span>' + select.find('option:selected').text() + '</span>' + svg + '</a>')
+        var toggle = $('<a class="ht-select-button" href="#"><span>' + createOptionText(select.find('option:selected')) + '</span>' + svg + '</a>');
         container.append(toggle);
 
         var label = container.parent().find('label').remove();
@@ -388,7 +388,7 @@
         container.append(dropdown);
 
         $.each(select.find('option'), function (index, val) {
-            var item = $('<li n="' + index + '"><a href="#" data-scroll-integration-name="' + select.attr('name') + '" data-scroll-integration-value="' + $(this).attr('value') + '">' + $(this).text() + '</a></li>');
+            var item = $('<li n="' + index + '"><a href="#" data-scroll-integration-name="' + select.attr('name') + '" data-scroll-integration-value="' + $(this).attr('value') + '">' + createOptionText($(this), true) + '</a></li>');
             dropdown.find('ul').append(item);
         });
 
@@ -420,6 +420,14 @@
                 $(this).addClass('active');
             }
         });
+    }
+
+    function createOptionText(option, showVersionAccessibility) {
+        var optionText = option.text();
+        if (showVersionAccessibility && option.attr('data-version-accessible') === 'false') {
+            optionText += ' <span style="float: right; margin-left: 0.8em; color: #dddddd;" class="k15t-icon-viewport"></span>';
+        }
+        return optionText;
     }
 
     function toogleDropdown(container, open) {
