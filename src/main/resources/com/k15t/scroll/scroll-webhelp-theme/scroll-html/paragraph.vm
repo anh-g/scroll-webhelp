@@ -1,5 +1,5 @@
 #if($renderStart)
-    <p>#if ($element.ContentSize == 0 && $element.Parent.Class.SimpleName == "Cell")&nbsp;#end##Empty cells should have full height.
+    <p $idAttribute $classAttribute>#if ($element.ContentSize == 0 && $element.Parent.ContentSize == 1 && $element.Parent.Class.SimpleName == "Cell")&nbsp;#end##Empty cells should have full height.
 #else
     </p>
 #end
