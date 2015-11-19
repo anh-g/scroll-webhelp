@@ -387,8 +387,9 @@
         var dropdown = $('<div class="ht-dropdown ht-dropdown-select"><ul></ul></div>');
         container.append(dropdown);
 
+        var allAccessible = allEntriesAccessible(select);
         $.each(select.find('option'), function (index, val) {
-            var item = $('<li n="' + index + '"><a href="#" data-scroll-integration-name="' + select.attr('name') + '" data-scroll-integration-value="' + $(this).attr('value') + '">' + createOptionText($(this), true) + '</a></li>');
+            var item = $('<li n="' + index + '"><a href="#" data-scroll-integration-name="' + select.attr('name') + '" data-scroll-integration-value="' + $(this).attr('value') + '">' + createOptionText($(this), !allAccessible) + '</a></li>');
             dropdown.find('ul').append(item);
         });
 
@@ -422,6 +423,18 @@
         });
     }
 
+    /** Check if all of the entries in the given select are runtime accessible (currently only relevant for versions). */
+    function allEntriesAccessible(select) {
+        var allAccessible = true;
+        if (select.attr('name') === 'scroll-versions:version-name') {
+            $.each(select.find('option'), function () {
+                allAccessible &= ($(this).attr('data-version-accessible') === 'true');
+            });
+        }
+        return allAccessible;
+    }
+
+    /** Create the text for the drop-down entries (version entries may contain some extra info other than the property name). */
     function createOptionText(option, showVersionAccessibility) {
         var optionText = option.text();
         if (showVersionAccessibility) {
