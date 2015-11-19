@@ -424,8 +424,15 @@
 
     function createOptionText(option, showVersionAccessibility) {
         var optionText = option.text();
-        if (showVersionAccessibility && option.attr('data-version-accessible') === 'false') {
-            optionText += ' <span style="float: right; margin-left: 0.8em; color: #dddddd;" class="k15t-icon-viewport"></span>';
+        if (showVersionAccessibility) {
+            var versionAccessible = option.attr('data-version-accessible');
+            if (versionAccessible) {
+                optionText += ' <span style="float: right; margin-left: 0.8em; color: #dddddd;';
+                if (versionAccessible === 'true') {
+                    optionText += 'visibility: hidden;';
+                }
+                optionText += '" class="k15t-icon-viewport"></span>';
+            }
         }
         return optionText;
     }
