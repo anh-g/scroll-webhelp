@@ -43,6 +43,8 @@
         <resource name="error.vm"                                       location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/error.vm"/>
         <resource name="page.vm"                                        location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/page.vm"/>
         <resource name="search.vm"                                      location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/search.vm"/>
+
+        <resource name="thumbnail.png"                                  location="com/k15t/scroll/scroll-webhelp-theme/scroll-viewport/thumbnail.png"/>
     </scroll-viewport-theme>
 
     <!-- Scroll Help Theme for Scroll HTML Exporter, remove this if you don't want to create a Scroll HTML Exporter template. -->
