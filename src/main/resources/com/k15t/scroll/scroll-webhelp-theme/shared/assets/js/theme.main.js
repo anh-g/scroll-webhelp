@@ -481,7 +481,11 @@
                     var name = $(e.target).closest('a').attr('data-scroll-integration-name');
                     var value = $(e.target).closest('a').attr('data-scroll-integration-value');
 
-                    $('select[name="' + name + '"]').val(value).trigger('change');
+                    $('select[name="' + name + '"]').find('option:selected').prop('selected', false);
+                    $('select[name="' + name + '"]').find('option[value="' + value + '"]').prop('selected', true);
+
+                    $('select[name="' + name + '"]').trigger('change');
+
                 });
             });
 
