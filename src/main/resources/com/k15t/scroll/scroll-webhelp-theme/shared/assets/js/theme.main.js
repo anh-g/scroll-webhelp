@@ -378,7 +378,7 @@
     function setDropdown(select) {
         var container = select.parent();
         var svg = '<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="ht-select-button-icon"><path d="M2,3 L8,3 L5,7 L2,3 Z"></path></g></svg>';
-        var toggle = $('<a class="ht-select-button" href="#"><span>' + select.find('option:selected').text() + '</span>' + svg + '</a>')
+        var toggle = $('<a class="ht-select-button" href="#"><span>' + createOptionText(select.find('option:selected')) + '</span>' + svg + '</a>');
         container.append(toggle);
 
         var label = container.parent().find('label').remove();
@@ -387,8 +387,9 @@
         var dropdown = $('<div class="ht-dropdown ht-dropdown-select"><ul></ul></div>');
         container.append(dropdown);
 
+        var allAccessible = allEntriesAccessible(select);
         $.each(select.find('option'), function (index, val) {
-            var item = $('<li n="' + index + '"><a href="#" data-scroll-integration-name="' + select.attr('name') + '" data-scroll-integration-value="' + $(this).attr('value') + '">' + $(this).text() + '</a></li>');
+            var item = $('<li n="' + index + '"><a href="#" data-scroll-integration-name="' + select.attr('name') + '" data-scroll-integration-value="' + $(this).attr('value') + '">' + createOptionText($(this), !allAccessible) + '</a></li>');
             dropdown.find('ul').append(item);
         });
 
@@ -422,6 +423,33 @@
         });
     }
 
+    /** Check if all of the entries in the given select are runtime accessible (currently only relevant for versions). */
+    function allEntriesAccessible(select) {
+        var allAccessible = true;
+        if (select.attr('name') === 'scroll-versions:version-name') {
+            $.each(select.find('option'), function () {
+                allAccessible &= ($(this).attr('data-version-accessible') === 'true');
+            });
+        }
+        return allAccessible;
+    }
+
+    /** Create the text for the drop-down entries (version entries may contain some extra info other than the property name). */
+    function createOptionText(option, showVersionAccessibility) {
+        var optionText = option.text();
+        if (showVersionAccessibility) {
+            var versionAccessible = option.attr('data-version-accessible');
+            if (versionAccessible) {
+                optionText += ' <span style="float: right; margin-left: 0.8em; color: #dddddd;';
+                if (versionAccessible === 'true') {
+                    optionText += 'visibility: hidden;';
+                }
+                optionText += '" class="k15t-icon-viewport"></span>';
+            }
+        }
+        return optionText;
+    }
+
     function toogleDropdown(container, open) {
         if (open) {
             $('body').bind('click', function (e) {
@@ -450,8 +478,8 @@
                 $(this).find('a').bind('click', function (e) {
                     e.preventDefault();
 
-                    var name = $(e.target).attr('data-scroll-integration-name');
-                    var value = $(e.target).attr('data-scroll-integration-value');
+                    var name = $(e.target).closest('a').attr('data-scroll-integration-name');
+                    var value = $(e.target).closest('a').attr('data-scroll-integration-value');
 
                     $('select[name="' + name + '"]').find('option:selected').attr('selected', false);
                     $('select[name="' + name + '"]').find('option[value="' + value + '"]').attr('selected', true);

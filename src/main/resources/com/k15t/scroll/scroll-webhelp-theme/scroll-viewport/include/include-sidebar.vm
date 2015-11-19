@@ -35,8 +35,11 @@
                                     <select id="ht-select-version" class="sp-picker" name="scroll-versions:version-name"
                                             tabindex="-2">
                                         #foreach($version in $versions.available)
-                                            <option value="$version.value" #if($version.name == $versions.current.name)
-                                                    selected="selected" #end>$version.name</option>
+                                            <option value="$version.value"
+                                                    #if($version.name == $versions.current.name) selected="selected" #end
+                                                    data-version-accessible="$version.isAccessible">$version.name#*
+                                                    *##if($version.value == 'latest' && $version.original) ($version.original.name)#end#*
+                                                    *#</option>
                                         #end
                                     </select>
                                 </div>
