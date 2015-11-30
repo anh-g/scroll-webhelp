@@ -91,12 +91,12 @@
         text-align: right;
         position: relative;
         padding-right: 6px;
+        cursor: pointer;
 
         label {
           position: absolute;
           left: 6px;
-          //top: 2px;
-          //font-size: 0.875em;
+          cursor: pointer;
 
           @include max-screen($mq-tablet) {
             display: none;
@@ -109,6 +109,7 @@
           white-space: nowrap;
           overflow: hidden;
           width: inherit;
+          cursor: pointer;
 
           margin-right: 4px;
         }
@@ -154,6 +155,14 @@
         margin-top: 0px;
         max-width: 100%;
         min-width: 100px;
+
+        a {
+          cursor: pointer;
+
+          span {
+            cursor: pointer;
+          }
+        }
       }
     }
 

@@ -13,6 +13,7 @@
 
     // firefox detection
     var isFirefox = typeof InstallTrigger !== 'undefined'; // Firefox 1.0+
+    var isIE = (navigator.userAgent.indexOf("MSIE") > 0) || (navigator.userAgent.indexOf("Trident") > 0);
     var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0; // At least Safari 3+: "[object HTMLElementConstructor]"
 
     $(document).ready(function() {
@@ -378,7 +379,7 @@
     function setDropdown(select) {
         var container = select.parent();
         var svg = '<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="ht-select-button-icon"><path d="M2,3 L8,3 L5,7 L2,3 Z"></path></g></svg>';
-        var toggle = $('<a class="ht-select-button" href="#"><span>' + createOptionText(select.find('option:selected')) + '</span>' + svg + '</a>');
+        var toggle = $('<a class="ht-select-button"><span>' + createOptionText(select.find('option:selected')) + '</span>' + svg + '</a>');
         container.append(toggle);
 
         var label = container.parent().find('label').remove();
@@ -389,7 +390,7 @@
 
         var allAccessible = allEntriesAccessible(select);
         $.each(select.find('option'), function (index, val) {
-            var item = $('<li n="' + index + '"><a href="#" data-scroll-integration-name="' + select.attr('name') + '" data-scroll-integration-value="' + $(this).attr('value') + '">' + createOptionText($(this), !allAccessible) + '</a></li>');
+            var item = $('<li n="' + index + '"><a data-scroll-integration-name="' + select.attr('name') + '" data-scroll-integration-title="' + $(this).text() + '" data-scroll-integration-value="' + $(this).attr('value') + '">' + createOptionText($(this), !allAccessible) + '</a></li>');
             dropdown.find('ul').append(item);
         });
 
@@ -400,10 +401,11 @@
 
         toggle.bind('click', function (e) {
             e.preventDefault();
+            e.stopPropagation();
 
-            if (viewport == 'mobile' && !isFirefox) {
+            if (viewport == 'mobile' && !(isFirefox || isIE)) {
                 openSelect(select);
-                return;
+                return false;
             }
 
 
@@ -420,6 +422,8 @@
                 toogleDropdown(container, true);
                 $(this).addClass('active');
             }
+
+            return false;
         });
     }
 
@@ -466,7 +470,6 @@
         var dropdown = container.find('.ht-dropdown');
 
         if (open) {
-
             toggle.addClass('active');
             dropdown.addClass('open');
 
@@ -475,24 +478,29 @@
                     dropdown.find('li a').removeClass('hover');
                     $(this).find('a').addClass('hover');
                 });
+
                 $(this).find('a').bind('click', function (e) {
                     e.preventDefault();
 
                     var name = $(e.target).closest('a').attr('data-scroll-integration-name');
                     var value = $(e.target).closest('a').attr('data-scroll-integration-value');
+                    var title = $(e.target).closest('a').attr('data-scroll-integration-title');
 
-                    $('select[name="' + name + '"]').find('option:selected').attr('selected', false);
-                    $('select[name="' + name + '"]').find('option[value="' + value + '"]').attr('selected', true);
+                    toggle.find('span').text(title);
 
-                    $('select[name="' + name + '"]').trigger('change');
+                    var target = window.location.pathname + '?' + name + '=' + value;
 
+                    var context = toggle.closest('form').find('input[name=context]').val();
+                    if (context) {
+                        target += '&context=' + context;
+                    }
+
+                    window.location.href = target;
                 });
             });
-
         } else {
             toggle.removeClass('active');
             dropdown.removeClass('open');
-
         }
     }
 
