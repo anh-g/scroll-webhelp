@@ -104,6 +104,8 @@
         <resource type="static-resource"    name="assets/js/scroll-search.js"                   location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/js/scroll-search.js"/>
         <resource type="static-resource"    name="assets/css/content-style.css"                 location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/css/content-style.css"/>
         <resource type="static-resource"    name="assets/css/search.css"                        location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/css/search.css"/>
+        <resource type="static-resource"    name="assets/images/checkbox-checked.png"           location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/images/checkbox-checked.png"/>
+        <resource type="static-resource"    name="assets/images/checkbox-unchecked.png"         location="com/k15t/scroll/scroll-webhelp-theme/scroll-html/images/checkbox-unchecked.png"/>
 
         <resource type="static-resource"    name="assets/css/theme.colors.css"                  location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.colors.css"/>
         <resource type="static-resource"    name="assets/css/theme.main.css"                    location="com/k15t/scroll/scroll-webhelp-theme/shared/assets/css/theme.main.css"/>
