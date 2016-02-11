@@ -167,7 +167,7 @@
             }, 0);
         }
 
-        $('a[href^="#"]').click(function (e) {
+        $('a[href^="#"]:not(.tabs-menu *)').click(function (e) {
             e.preventDefault();
             $(window).stop(true).scrollTo(this.hash, {
                 'offset': -($('#ht-headerbar').height() + additionalOffset),
