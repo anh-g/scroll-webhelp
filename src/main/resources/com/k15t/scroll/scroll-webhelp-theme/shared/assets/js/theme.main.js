@@ -163,20 +163,29 @@
         if (window.location.hash) {
             // Net to put it at the end of the event loop for making it work in IE :-(
             setTimeout(function() {
-                $(window).scrollTo(window.location.hash, {offset: -($('#ht-headerbar').height() + additionalOffset), duration: duration, interrupt: true});
+                $(window).scrollTo(
+                    document.getElementById(window.location.hash.slice(1)),
+                    {
+                        offset: -($('#ht-headerbar').height() + additionalOffset),
+                        duration: duration,
+                        interrupt: true
+                    }
+                );
             }, 0);
         }
 
         $('a[href^="#"]:not(.tabs-menu *)').click(function (e) {
             e.preventDefault();
-            $(window).stop(true).scrollTo(this.hash, {
+            $(window).stop(true).scrollTo(document.getElementById(this.hash.slice(1)), {
                 'offset': -($('#ht-headerbar').height() + additionalOffset),
                 'duration': duration,
                 'interrupt': true
             });
 
             if (history) {
-                history.pushState({}, '', $(e.target).attr('href'));
+                // PushState is not supported for local files (file:///...)
+                // See https://bugs.chromium.org/p/chromium/issues/detail?id=301210
+                //history.pushState({}, '', $(e.target).attr('href'));
             }
             return false;
         });
