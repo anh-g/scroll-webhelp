@@ -182,10 +182,10 @@
                 'interrupt': true
             });
 
-            if (history) {
-                // PushState is not supported for local files (file:///...)
-                // See https://bugs.chromium.org/p/chromium/issues/detail?id=301210
-                //history.pushState({}, '', $(e.target).attr('href'));
+            // PushState is not supported for local files (file:///...)
+            // See https://bugs.chromium.org/p/chromium/issues/detail?id=301210
+            if (history && location.protocol.slice(0,4) != 'file') {
+                history.pushState({}, '', $(e.target).attr('href'));
             }
             return false;
         });
