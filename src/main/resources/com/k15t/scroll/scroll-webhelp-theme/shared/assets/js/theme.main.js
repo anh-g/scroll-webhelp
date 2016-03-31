@@ -164,7 +164,7 @@
             // Net to put it at the end of the event loop for making it work in IE :-(
             setTimeout(function() {
                 $(window).scrollTo(
-                    document.getElementById(window.location.hash.slice(1)),
+                    document.getElementById(window.location.hash.substr(1)),
                     {
                         offset: -($('#ht-headerbar').height() + additionalOffset),
                         duration: duration,
@@ -176,15 +176,18 @@
 
         $('a[href^="#"]:not(.tabs-menu *)').click(function (e) {
             e.preventDefault();
-            $(window).stop(true).scrollTo(document.getElementById(this.hash.slice(1)), {
-                'offset': -($('#ht-headerbar').height() + additionalOffset),
-                'duration': duration,
-                'interrupt': true
-            });
+            $(window).stop(true).scrollTo(
+                document.getElementById(this.hash.substr(1)),
+                {
+                    offset: -($('#ht-headerbar').height() + additionalOffset),
+                    duration: duration,
+                    interrupt: true
+                }
+            );
 
             // PushState is not supported for local files (file:///...)
             // See https://bugs.chromium.org/p/chromium/issues/detail?id=301210
-            if (history && location.protocol.slice(0,4) != 'file') {
+            if (history && location.protocol.substr(0,4) != 'file') {
                 history.pushState({}, '', $(e.target).attr('href'));
             }
             return false;
