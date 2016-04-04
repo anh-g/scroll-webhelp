@@ -168,7 +168,8 @@
                     {
                         offset: -($('#ht-headerbar').height() + additionalOffset),
                         duration: duration,
-                        interrupt: true
+                        interrupt: true,
+                        axis: 'y'
                     }
                 );
             }, 0);
@@ -181,7 +182,8 @@
                 {
                     offset: -($('#ht-headerbar').height() + additionalOffset),
                     duration: duration,
-                    interrupt: true
+                    interrupt: true,
+                    axis: 'y'
                 }
             );
 
