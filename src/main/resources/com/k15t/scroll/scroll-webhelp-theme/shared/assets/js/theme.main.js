@@ -175,7 +175,7 @@
             }, 0);
         }
 
-        $('a[href^="#"]:not(.tabs-menu *)').click(function (e) {
+        $('.ht-content').on('click', 'a[href^="#"]:not(.tabs-menu *)', function(e) {
             e.preventDefault();
             $(window).stop(true).scrollTo(
                 document.getElementById(this.hash.substr(1)),
