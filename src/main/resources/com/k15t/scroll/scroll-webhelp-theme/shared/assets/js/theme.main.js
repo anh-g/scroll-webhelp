@@ -670,8 +670,10 @@
 
     function setCookie(cname, cvalue) {
         if (window.location.origin == 'file://') {
-            if (localStorage) {
+            try {
                 localStorage.setItem(cname, cvalue);
+            } catch (e) {
+                console.log('Saving the state of the drag-bar is not supported in Edge');
             }
         } else {
             var d = new Date();
@@ -683,11 +685,13 @@
 
     function getCookie(cname) {
         if (window.location.origin == 'file://') {
-            if (localStorage) {
+            try {
                 var value = localStorage.getItem(cname);
                 if (typeof value != 'undefined') {
                     return value;
                 }
+            } catch (e) {
+                console.log('Saving the state of the drag-bar is not supported in Edge');
             }
         } else {
             var name = cname + "=";
