@@ -673,7 +673,7 @@
             try {
                 localStorage.setItem(cname, cvalue);
             } catch (e) {
-                console.log('Saving the state of the drag-bar is not supported in Edge');
+                console.log('Saving the state of the drag-bar is not supported because localStorage is not available');
             }
         } else {
             var d = new Date();
@@ -691,7 +691,7 @@
                     return value;
                 }
             } catch (e) {
-                console.log('Saving the state of the drag-bar is not supported in Edge');
+                console.log('Saving the state of the drag-bar is not supported because localStorage is not available');
             }
         } else {
             var name = cname + "=";
