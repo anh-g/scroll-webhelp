@@ -177,8 +177,13 @@
 
         $('.ht-content').on('click', 'a[href^="#"]:not(.tabs-menu *)', function(e) {
             e.preventDefault();
+            var element = document.getElementById(this.hash.substr(1));
+            if (!element) {
+                // look for element with encoded ID - hash is provided different in Firefox
+                element = document.getElementById(decodeURI(this.hash.substr(1)));
+            }
             $(window).stop(true).scrollTo(
-                document.getElementById(this.hash.substr(1)),
+                element,
                 {
                     offset: -($('#ht-headerbar').height() + additionalOffset),
                     duration: duration,
